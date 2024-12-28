@@ -1,0 +1,25 @@
+.spellcasters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    width: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.connect-wallet {
+    background: none;
+    border: 2px solid #b19cd9;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #b19cd9;
+    cursor: not-allowed;
+}
