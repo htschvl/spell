@@ -1,10 +1,16 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.scss'
 import Main from './pages/Main'
 
-function App() {
+const App = () => {
   return (
     <>
-      <Main />
+    {/* TODO: implement routing */}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={ <Main /> }></Route>
+      </Routes>
+    </BrowserRouter>
     </>
   )
 }

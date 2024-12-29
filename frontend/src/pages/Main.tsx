@@ -1,7 +1,7 @@
 import '../styles/Main.scss'
 import Home from './Home';
 
-function Main() {
+const Main = () => {
     return (
         <div className='spellcasters-container'>
             <Home />
