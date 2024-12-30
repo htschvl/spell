@@ -1,0 +1,41 @@
+.ntfs-page {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.header h1, .header h2 {
+    color: #fff;
+}
+
+.intro p {
+    color: #888;
+}
+
+.collection {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nft-item {
+    margin: 10px;
+    text-align: center;
+}
+
+.nft-item img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.footer {
+    margin-top: 20px;
+}
+
+.footer button {
+    background-color: #6a0dad;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
