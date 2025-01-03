@@ -1,6 +1,10 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+
 import '../styles/Home.scss';
+
+import bullishImage from '../assets/bullish.jpeg';
+import Carousel from "../components/Carousel";
 
 const Home = () => {
     return (
@@ -23,42 +27,48 @@ const Home = () => {
 
             {/* ABOUT THE TOKEN */}
             <section className="about-token">
-                <h1>$SPELL: A token for transformation by Tü.uk'z</h1>
-                <h2>WE'RE BULLISH ON ART AND CULTURE</h2>
+                <div className="about-token--flexbox">
+                    <div className="about-token--flexbox--left-separator">
+                        <h1>$SPELL: A token for transformation by Tü.uk'z</h1>
+                        <h2>WE'RE BULLISH ON ART AND CULTURE</h2>
 
-                <div>
-                    <h3>Born from artistic vision</h3>
-                    <p>
-                        Each piece begins as a whisper between dimensions, where glitch meets grace in
-                        the digital void. My journey from Brazilian street art to blockchain sorcery has
-                        always followed one truth: beauty emerges from controlled chaos.
-                    </p>
+                        <div>
+                            <h3>Born from artistic vision</h3>
+                            <p>
+                                Each piece begins as a whisper between dimensions, where glitch meets grace in
+                                the digital void. My journey from Brazilian street art to blockchain sorcery has
+                                always followed one truth: beauty emerges from controlled chaos.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3>Powered by community magic</h3>
+                            <p>
+                                Our strength flows from a circle of collectors, creators, and visionaries
+                                who understand that art transcends its medium. Together we're weaving a new
+                                tapestry of possibilities, where every holder becomes part of the artwork's
+                                evolving story.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3>Sustained by true believers</h3>
+                            <p>
+                                This isn't for the quick flip or the passing trend - it's for those who see the
+                                eternal in the ephemeral, who collect not just art but moments of digital
+                                transcendence. Our collectors are curators of tomorrow's cultural heritage, each
+                                $SPELL token representing a thread in our collective dreamscape.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="about-token--flexbox--right-separator">
+                        <div className="artwork">
+                            <img src={bullishImage} alt="Artwork" />
+                        </div>
+                    </div>
                 </div>
 
-                <div>
-                    <h3>Powered by community magic</h3>
-                    <p>
-                        Our strength flows from a circle of collectors, creators, and visionaries
-                        who understand that art transcends its medium. Together we're weaving a new
-                        tapestry of possibilities, where every holder becomes part of the artwork's
-                        evolving story.
-                    </p>
-                </div>
-
-                <div>
-                    <h3>Sustained by true believers</h3>
-                    <p>
-                        This isn't for the quick flip or the passing trend - it's for those who see the
-                        eternal in the ephemeral, who collect not just art but moments of digital
-                        transcendence. Our collectors are curators of tomorrow's cultural heritage, each
-                        $SPELL token representing a thread in our collective dreamscape.
-                    </p>
-                </div>
-
-                {/* TODO: insert the image */}
-                <div className="artwork">
-                    <img src="path/to/your/image.jpg" alt="Artwork" />
-                </div>
 
                 <div>
                     <p>Tü.uk'z artworks</p>
@@ -80,16 +90,7 @@ const Home = () => {
                 <h2>VIEW OUR LISTINGS</h2>
 
                 <div className="listings">
-                    {/* TODO: create carousel component */}
-                    {/* TODO: insert the logos and link them to their pages */}
-                    <div className="listing-card">
-                        <img src="path/to/coingecko-logo.png" alt="CoinGecko" />
-                        <p>We're listed on CoinGecko as "The Spellcaster" (SPELL)</p>
-                    </div>
-                    <div className="listing-card">
-                        <img src="path/to/dexscreener-logo.png" alt="Dexscreener" />
-                        <p>Check out SPELL/SOL on Dexscreener</p>
-                    </div>
+                    <Carousel />
                 </div>
             </section>
 
