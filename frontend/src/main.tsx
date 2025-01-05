@@ -1,10 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
-// import App from './App.tsx'
 import App from './App.tsx'
 import Home from './pages/Home.tsx'
 import NTFs from './pages/NTFs.tsx'
+import NotFound from './pages/NotFound.tsx'
+import ContactUs from './pages/ContactUs.tsx'
 
 import {
   createBrowserRouter,
@@ -12,7 +13,6 @@ import {
 } from 'react-router-dom'
 
 import './index.scss'
-import NotFound from './pages/NotFound.tsx'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +21,7 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <Home /> },
       { path: '/nfts', element: <NTFs /> },
+      { path: '/contact', element: <ContactUs /> },
     ]
   },
 ]);

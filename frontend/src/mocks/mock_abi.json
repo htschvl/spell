@@ -1,0 +1,89 @@
+{
+  "name": "FictionalNFTContract",
+  "version": "1.0",
+  "instructions": [
+    {
+      "name": "mintNFT",
+      "accounts": [
+        {
+          "name": "mintAuthority",
+          "isSigner": true,
+          "isWritable": false
+        },
+        {
+          "name": "nftAccount",
+          "isSigner": false,
+          "isWritable": true
+        },
+        {
+          "name": "owner",
+          "isSigner": false,
+          "isWritable": false
+        }
+      ],
+      "args": [
+        {
+          "name": "metadata",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "transferNFT",
+      "accounts": [
+        {
+          "name": "from",
+          "isSigner": true,
+          "isWritable": true
+        },
+        {
+          "name": "to",
+          "isSigner": false,
+          "isWritable": true
+        },
+        {
+          "name": "nftAccount",
+          "isSigner": false,
+          "isWritable": true
+        }
+      ],
+      "args": []
+    }
+  ],
+  "events": [
+    {
+      "name": "NFTMinted",
+      "fields": [
+        {
+          "name": "nftAccount",
+          "type": "publicKey"
+        },
+        {
+          "name": "owner",
+          "type": "publicKey"
+        },
+        {
+          "name": "metadata",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "NFTTransferred",
+      "fields": [
+        {
+          "name": "from",
+          "type": "publicKey"
+        },
+        {
+          "name": "to",
+          "type": "publicKey"
+        },
+        {
+          "name": "nftAccount",
+          "type": "publicKey"
+        }
+      ]
+    }
+  ]
+} 

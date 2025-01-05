@@ -1,10 +1,11 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Carousel from "../components/Carousel";
 
 import '../styles/Home.scss';
 
 import bullishImage from '../assets/bullish.jpeg';
-import Carousel from "../components/Carousel";
+import spellcasterFortune from '../assets/Spellcaster-Fortune.jpg';
 
 const Home = () => {
     return (
@@ -27,12 +28,12 @@ const Home = () => {
 
             {/* ABOUT THE TOKEN */}
             <section className="about-token">
+                <h1>$SPELL: A token for transformation by Tü.uk'z</h1>
+                <h2>WE'RE BULLISH ON ART AND CULTURE</h2>
                 <div className="about-token--flexbox">
                     <div className="about-token--flexbox--left-separator">
-                        <h1>$SPELL: A token for transformation by Tü.uk'z</h1>
-                        <h2>WE'RE BULLISH ON ART AND CULTURE</h2>
 
-                        <div>
+                        <div className="about-token--flexbox--left-separator--paragraph">
                             <h3>Born from artistic vision</h3>
                             <p>
                                 Each piece begins as a whisper between dimensions, where glitch meets grace in
@@ -41,7 +42,7 @@ const Home = () => {
                             </p>
                         </div>
 
-                        <div>
+                        <div className="about-token--flexbox--left-separator--paragraph">
                             <h3>Powered by community magic</h3>
                             <p>
                                 Our strength flows from a circle of collectors, creators, and visionaries
@@ -51,7 +52,7 @@ const Home = () => {
                             </p>
                         </div>
 
-                        <div>
+                        <div className="about-token--flexbox--left-separator--paragraph">
                             <h3>Sustained by true believers</h3>
                             <p>
                                 This isn't for the quick flip or the passing trend - it's for those who see the
@@ -110,7 +111,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="image-section">
-                    <img src="path/to/your/image.jpg" alt="Art" />
+                    <img src={spellcasterFortune} alt="Art" />
                 </div>
             </section>
 

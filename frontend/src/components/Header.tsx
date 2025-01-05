@@ -17,7 +17,7 @@ function Header() {
                 <WalletModalProvider>
                     <header className="spellcasters-header">
                         <Link to="/">
-                            <img src="logo.png" alt="Logo" className="logo" />
+                            <p className="spellcaster-logo">Spellcasters</p>
                         </Link>
                         <nav>
                             <ul>

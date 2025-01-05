@@ -1,11 +1,12 @@
 import '../styles/Footer.scss';
+import spellcastersLogo from '../assets/spellcaster-logo.avif';
 
-function Footer () {
+function Footer() {
   return (
     <footer className="footer">
       <div className="footer-left">
-        <img src="path/to/logo.png" alt="Spellcasters Logo" className="logo" />
-        <h3>SPELLCASTERS</h3>
+        <img src={spellcastersLogo} alt="Spellcasters Logo" className="logo" />
+        <span>SPELLCASTERS</span>
         <p>For Those Who See Beyond</p>
         <p>© Copyright 2024 Tü.uk'z</p>
       </div>
