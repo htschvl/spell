@@ -4,8 +4,9 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import Home from './pages/Home.tsx'
 import NTFs from './pages/NTFs.tsx'
-import NotFound from './pages/NotFound.tsx'
+// import Collabs from './pages/Collabs.tsx'
 import ContactUs from './pages/ContactUs.tsx'
+import NotFound from './pages/NotFound.tsx'
 
 import {
   createBrowserRouter,
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <Home /> },
       { path: '/nfts', element: <NTFs /> },
+      // { path: '/collabs', element: <Collabs /> },
       { path: '/contact', element: <ContactUs /> },
     ]
   },

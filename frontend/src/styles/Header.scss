@@ -5,14 +5,55 @@
     padding: 20px;
 }
 
+a {
+    text-decoration: none;
+    color: #051b2599;
+    
+    &:active {
+        color: #68787e;
+    }
+
+    &:hover {
+        color:#051b2599;
+    }
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:visited {
+        color: #051b2599;
+    }
+}
+
 .logo {
-    width: 50px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+
+.spellcaster-logo {
+    color: #051b25 !important;
+    font-family: 'Blake';
+    margin-left: 0.5em;
+    font-size: 20px;
+
+    &:hover {
+        color: #051b25 !important;
+    }
 }
 
 nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
+
+    li {
+        font-family: 'VictorMono';
+    }
 }
 
 .connect-wallet {

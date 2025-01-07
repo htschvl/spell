@@ -7,6 +7,8 @@ import { clusterApiUrl } from '@solana/web3.js';
 import '../styles/Header.scss';
 import '@solana/wallet-adapter-react-ui/styles.css';
 
+import spellcastersLogo from '../assets/spellcaster-logo.avif';
+
 function Header() {
     const endpoint = clusterApiUrl('devnet'); // TODO: implements environment variables
     const wallets = [new PhantomWalletAdapter()];
@@ -16,8 +18,11 @@ function Header() {
             <WalletProvider wallets={wallets} autoConnect>
                 <WalletModalProvider>
                     <header className="spellcasters-header">
-                        <Link to="/">
-                            <p className="spellcaster-logo">Spellcasters</p>
+                        <Link to="/" className='logo-container'>
+                            <span className="image-container">
+                                <img src={spellcastersLogo} alt="Spellcasters Logo" className="logo" />
+                            </span>
+                            <span className="spellcaster-logo">SPELLCASTERS</span>
                         </Link>
                         <nav>
                             <ul>

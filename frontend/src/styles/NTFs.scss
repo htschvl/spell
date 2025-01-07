@@ -7,23 +7,62 @@
     color: #fff;
 }
 
-.intro p {
-    color: #888;
+.intro {
+    background-image: url('../assets/spellcaster.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    height: 90vh;
+}
+
+.intro h1, h2 {
+    color: white;
+}
+
+.intro h1 {
+    margin-top: 20vh;
+    font-size: 1em;
+}
+
+.intro h2 {
+    font-size: 2.5em;
+    width: 30%;
+    margin-left: 35%;
 }
 
 .collection {
+    margin-top: 10vw;
+    margin-bottom: 5vw;
     display: flex;
+    max-width: 60vw;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .nft-item {
     margin: 10px;
+    padding: 40px 20px;
+    border: 1px solid #ecedef;
+    border-radius: 3%;
     text-align: center;
 }
 
 .nft-item img {
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 260px;
+}
+
+.lower-section {
+    margin-bottom: 100px;
+
+    p {
+        color: #bc87ff;
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 2em;
+        padding-bottom: 1em;
+    }
 }

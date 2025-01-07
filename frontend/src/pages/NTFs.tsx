@@ -1,7 +1,16 @@
 import { useEffect, useState } from "react";
+
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+
 import '../styles/NTFs.scss'
+
+import img_001 from '../assets/1.avif';
+// import img_002 from '../assets/2.avif';
+// import img_003 from '../assets/3.avif';
+// import img_004 from '../assets/4.avif';
+// import img_005 from '../assets/5.avif';
+// import img_006 from '../assets/6.avif';
 
 type NFT = {
     id: string;
@@ -10,12 +19,12 @@ type NFT = {
 };
 
 const mockNFTs: NFT[] = [
-    { id: '001', name: 'Spellcaster 001', status: 'Available' },
-    { id: '002', name: 'Spellcaster 002', status: 'Available' },
-    { id: '003', name: 'Spellcaster 003', status: 'Available' },
-    { id: '004', name: 'Spellcaster 004', status: 'Available' },
-    { id: '005', name: 'Spellcaster 005', status: 'Available' },
-    { id: '006', name: 'Spellcaster 006', status: 'Available' },
+    { id: '1', name: 'Spellcaster 001', status: 'Available' },
+    { id: '2', name: 'Spellcaster 002', status: 'Available' },
+    { id: '3', name: 'Spellcaster 003', status: 'Available' },
+    { id: '4', name: 'Spellcaster 004', status: 'Available' },
+    { id: '5', name: 'Spellcaster 005', status: 'Available' },
+    { id: '6', name: 'Spellcaster 006', status: 'Available' },
 ];
 
 const NTFs = () => {
@@ -32,25 +41,29 @@ const NTFs = () => {
 
     return (
         <>
-            <Header />
 
             <section className="ntfs-page">
                 <div className="intro">
+                    <Header />
+                    <h1>Exclusive for $SPELL holders</h1>
+                    <h2>AN EXCLUSIVE PFP COLLECTION</h2>
+                </div>
+                <div className="collection">
                     <p>
                         Together, we're creating something timeless in the ephemeral world of digital art.
                         1000 NFTs for the dreamers, believers, who see beauty in broken code and magic in the machine.
                     </p>
-                </div>
-                <div className="collection">
+
                     {nfts.map(nft => (
                         <div key={nft.id} className="nft-item">
-                            <img src={`spellcaster${nft.id}.jpg`} alt={nft.name} />
+                            <img src={img_001} alt={nft.name} />
                             <p>{nft.name}</p>
                             <p>{nft.status}</p>
                         </div>
                     ))}
                 </div>
-                <div className="footer">
+                
+                <div className="lower-section">
                     <p>... and many more</p>
                     <h3>Be ready when our collection launches</h3>
                     <button>Buy $SPELL now</button>
