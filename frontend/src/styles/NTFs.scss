@@ -3,41 +3,48 @@
     font-family: 'Arial', sans-serif;
 }
 
-.header h1, .header h2 {
-    color: #fff;
-}
-
 .intro {
     background-image: url('../assets/spellcaster.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     height: 90vh;
 }
 
-.intro h1, h2 {
-    color: white;
-}
 
 .intro h1 {
     margin-top: 20vh;
     font-size: 1em;
+    color: white !important;
+    font-family: 'VictorMono';
 }
 
 .intro h2 {
     font-size: 2.5em;
     width: 30%;
     margin-left: 35%;
+    color: white !important;
+    font-family: 'Blake';
 }
 
 .collection {
     margin-top: 10vw;
     margin-bottom: 5vw;
     display: flex;
-    max-width: 60vw;
+    padding: 0 3em;
     justify-content: center;
     flex-wrap: wrap;
+
+    .collection-title {
+        font-family: 'VictorMono';
+        color: #9441fb;
+    }
+
+    .collection-subtitle {
+        font-family: 'Blake';
+        font-size: 2.5em;
+        font-weight: 600 !important;
+    }
 }
 
 .nft-item {
@@ -46,6 +53,16 @@
     border: 1px solid #ecedef;
     border-radius: 3%;
     text-align: center;
+
+    .nft-name {
+        font-family: 'Blake';
+        font-weight: 600;
+    }
+
+    .nft-status {
+        font-family: 'VictorMono';
+        color: #69767c;
+    }
 }
 
 .nft-item img {
@@ -57,12 +74,25 @@
     margin-bottom: 100px;
 
     p {
-        color: #bc87ff;
+        font-family: 'VictorMono';
+        color: #9441fb;
         font-size: 1.5em;
     }
 
     h3 {
+        font-family: 'Blake';
+        font-weight: 600;
         font-size: 2em;
         padding-bottom: 1em;
     }
+}
+
+.buy-spell {
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
 }

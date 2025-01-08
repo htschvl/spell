@@ -10,7 +10,7 @@ import '@solana/wallet-adapter-react-ui/styles.css';
 import spellcastersLogo from '../assets/spellcaster-logo.avif';
 
 function Header() {
-    const endpoint = clusterApiUrl('devnet'); // TODO: implements environment variables
+    const endpoint = clusterApiUrl('mainnet-beta'); // TODO: implements environment variables
     const wallets = [new PhantomWalletAdapter()];
 
     return (

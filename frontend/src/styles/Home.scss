@@ -2,8 +2,6 @@
 
 .spellcasters-intro-container {
     text-align: center;
-    color: #333;
-    // font-family: 'Arial', sans-serif;
     min-height: 100vh;
 
     background-image: url('../assets/worlds2.jpeg');
@@ -25,42 +23,64 @@
 }
 
 .spellcaster-intro-container--text {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'VictorMono';
+    color: #6b7577;
     padding-top: 10em;
+
+    display: grid;
+    align-items: center;
+    justify-items: center;
 }
 
 h1 {
-    font-size: 1.5em;
+    font-size: 1em;
     margin: 0.5em 0;
+    font-weight: 300 !important;
 }
 
 h2 {
     font-size: 3em;
     margin: 0.5em 0;
+    font-family: 'Blake';
+    color: #000;
 }
 
-.buy-spell {
-    background-color: #6a0dad;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 30px;
-    cursor: pointer;
-    margin-top: 20px;
+.about-spellcaster {
+    max-width: 510px;
 }
 
 .spellcasters-contract-addr {
     padding: 20px;
     font-size: 0.8em;
     color: #666;
-
+    font-family: 'Blake';
+    
     p {
+        font-weight: 700;
         margin-top: 25em;
     }
 }
 
 .about-token {
-    font-family: 'Arial', sans-serif;
+    h1 {
+        font-family: 'VictorMono';
+        color: #9441fb;
+        margin-top: 5em;
+        font-weight: 500 !important;
+    }
+    
+    &--flexbox {
+        font-family: 'VictorMono';
+
+        h3 {
+            font-weight: 5  00 !important;
+        }
+
+        p {
+            font-weight: 200 !important;
+        }
+    }
+
     padding: 20px;
     min-height: 100vh;
     margin: auto;
@@ -72,15 +92,17 @@ h2 {
         align-items: center;
 
         &--left-separator {
+            width: 50%;
+
             &--paragraph {
                 padding: 50px 0;
             }
         }
-    }
-}
 
-h1 {
-    color: purple;
+        &--right-separator {
+            width: 50%;
+        }
+    }
 }
 
 .artwork img {
@@ -94,12 +116,17 @@ h1 {
     margin: 5px;
 }
 
+.tuukz-artworks {
+    font-family: 'VictorMono';
+    color: #9441fb;
+}
+
 .learn {
     min-height: 50vh;
-    padding-top: 50px;
-    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    margin-top: 50px;
     margin: auto;
-    text-align: center;
+    text-align: left;
 }
 
 .learn-link {
@@ -110,7 +137,6 @@ h1 {
 
 h2 {
     margin-top: 10px;
-    font-size: 24px;
 }
 
 .listings {
@@ -120,25 +146,33 @@ h2 {
 
 .circle {
     display: flex;
-    justify-content: space-between;
+    padding: 20px;
+    justify-content: space-around;
     align-items: center;
     background-color: #3b337a;
-    color: white;
-    font-family: 'Arial', sans-serif;
+    color: fff;
+
+    h1 {
+        font-family: 'VictorMono';
+        color: #07e342;
+    }
+
+    h2 {
+        color: #fff;
+    }
+
+    p {
+        font-family: 'VictorMono';
+        color: #fff;
+        font-weight: 200;
+    }
 }
 
 .text-section {
     max-width: 50%;
 }
 
-.join-link {
-    color: green;
-    text-decoration: none;
-    font-weight: bold;
-}
-
 h2 {
-    font-size: 28px;
     margin: 10px 0;
 }
 
@@ -148,7 +182,19 @@ p {
 }
 
 .icons {
-    margin-top: 20px;
+    margin-top: 50px;
+    display: flex;
+
+    a {
+        background-color: rgba(84, 64, 168, 0.2);
+        border-radius: 32px;
+        opacity: 1;
+        width: 7em;
+        text-align: center;
+        padding-left: 0.5em;
+        padding-top: 0.5em;
+        margin-right: 1em;
+    }
 }
 
 .icons img {

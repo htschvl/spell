@@ -14,16 +14,40 @@
   text-align: center;
 }
 
+.footer-left {
+  span {
+    font-family: 'Blake';
+    font-weight: 600;
+  }
+
+  p {
+    font-family: 'VictorMono';
+    font-weight: 200;
+    font-size: small;
+  }
+}
+
 .footer-left--logo {
+  width: fit-content;
   display: flex;
+  align-items: center;
+  margin-left: 1em;
 }
 
 .footer-center ul {
+  font-family: 'VictorMono';
+  font-weight: 200;
+  font-size: small;
   list-style: none;
   padding: 0;
 }
 
+.footer-right {
+  display: none;
+}
+
 .footer-center li {
+  color: white !important;
   margin: 5px 0;
 }
 

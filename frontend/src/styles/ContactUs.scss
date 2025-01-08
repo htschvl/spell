@@ -13,26 +13,28 @@
     }
 
     .contact-session {
-        padding: 300px 0;
-    }
-
-    form {
-        width: 50vw;
+        padding: 5em 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     h2 {
-        color: #6a0dad;
-        font-size: 2rem;
+        font-family: 'VictorMono';
+        color: #9441fb;
+        font-size: 1em;
     }
 
     h3 {
-        color: #6a0dad;
-        font-size: 1.5rem;
+        font-size: 2rem;
+        font-family: 'Blake';
     }
 
     p {
+        font-family: 'VictorMono';
         color: #333;
-        margin-bottom: 1.5rem;
+        margin-top: 1em;
+        margin-bottom: 1.5em;
     }
 
     .input-fields {
@@ -47,9 +49,11 @@
         border: none;
         border-radius: 200px;
         background-color: #EBEBEB;
+        font-family: 'VictorMono';
     }
 
     textarea {
+        font-family: 'VictorMono';
         width: 47.5em;
         height: 10em;
         padding: 1rem;
@@ -66,9 +70,10 @@
         color: white;
         padding: 1rem;
         border: none;
-        border-radius: 5px;
+        border-radius: 30px;
         cursor: pointer;
         transition: background-color 0.3s;
+        width: 100%;
 
         &:hover {
             background-color: #5a0c9e;

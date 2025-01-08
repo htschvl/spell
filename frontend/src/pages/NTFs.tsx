@@ -6,11 +6,7 @@ import Header from "../components/Header";
 import '../styles/NTFs.scss'
 
 import img_001 from '../assets/1.avif';
-// import img_002 from '../assets/2.avif';
-// import img_003 from '../assets/3.avif';
-// import img_004 from '../assets/4.avif';
-// import img_005 from '../assets/5.avif';
-// import img_006 from '../assets/6.avif';
+import BuySpellButton from "../components/BuySpellButton";
 
 type NFT = {
     id: string;
@@ -18,6 +14,7 @@ type NFT = {
     status: string;
 };
 
+{/* TODO: implement the spell contract */ }
 const mockNFTs: NFT[] = [
     { id: '1', name: 'Spellcaster 001', status: 'Available' },
     { id: '2', name: 'Spellcaster 002', status: 'Available' },
@@ -49,24 +46,29 @@ const NTFs = () => {
                     <h2>AN EXCLUSIVE PFP COLLECTION</h2>
                 </div>
                 <div className="collection">
-                    <p>
-                        Together, we're creating something timeless in the ephemeral world of digital art.
-                        1000 NFTs for the dreamers, believers, who see beauty in broken code and magic in the machine.
-                    </p>
+                    <div className="collection-container">
+                        <p className="collection-title">
+                            Together, we're creating something timeless in the ephemeral world of digital art
+                        </p>
+
+                        <h1 className="collection-subtitle">
+                            1000 NFTs for the dreamers, believers, who see beauty in broken code and magic in the machine.
+                        </h1>
+                    </div>
 
                     {nfts.map(nft => (
                         <div key={nft.id} className="nft-item">
                             <img src={img_001} alt={nft.name} />
-                            <p>{nft.name}</p>
-                            <p>{nft.status}</p>
+                            <p className="nft-name">{nft.name}</p>
+                            <p className="nft-status">{nft.status}</p>
                         </div>
                     ))}
                 </div>
-                
+
                 <div className="lower-section">
                     <p>... and many more</p>
                     <h3>Be ready when our collection launches</h3>
-                    <button>Buy $SPELL now</button>
+                    <BuySpellButton />
                 </div>
             </section>
 

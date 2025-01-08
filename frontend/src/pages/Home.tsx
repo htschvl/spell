@@ -6,6 +6,9 @@ import '../styles/Home.scss';
 
 import bullishImage from '../assets/bullish.jpeg';
 import spellcasterFortune from '../assets/Spellcaster-Fortune.jpg';
+import dexscreenerLogo from '../assets/dexscreener-logo.avif';
+import aveLogo from '../assets/ave-logo.avif';
+import BuySpellButton from "../components/BuySpellButton";
 
 const Home = () => {
     return (
@@ -16,25 +19,24 @@ const Home = () => {
                 <div className="spellcaster-intro-container--text">
                     <h1 className="spellcaster-intro-container--text--title">A bridge between worlds</h1>
                     <h2>FOR THOSE WHO SEE BEYOND</h2>
-                    <p>
+                    <p className="about-spellcaster">
                         Spellcasters is more than an art collection - we're crafting digital enchantments
                         where every pixel holds a story, every glitch opens a gateway, and every collector
                         becomes part of the magic.
                     </p>
-                    <button className="buy-spell">Buy $SPELL</button>
-                    <div className="spellcasters-contract-addr">
-                        <p>Contract address: 8zrgKoeADL7c8Sn8sgHnE22lnEa4oEjAptVpump</p>
-                    </div>
+                    <BuySpellButton />
+                </div>
+                <div className="spellcasters-contract-addr">
+                    <p>Contract address: 8zrgKoeADL7c8Sn8sgHnE22lnEa4oEjAptVpump</p>
                 </div>
             </div>
 
             {/* ABOUT THE TOKEN */}
             <section className="about-token">
-                <h1>$SPELL: A token for transformation by Tü.uk'z</h1>
-                <h2>WE'RE BULLISH ON ART AND CULTURE</h2>
                 <div className="about-token--flexbox">
                     <div className="about-token--flexbox--left-separator">
-
+                        <h1>$SPELL: A token for transformation by Tü.uk'z</h1>
+                        <h2>WE'RE BULLISH ON ART AND CULTURE</h2>
                         <div className="about-token--flexbox--left-separator--paragraph">
                             <h3>Born from artistic vision</h3>
                             <p>
@@ -73,7 +75,7 @@ const Home = () => {
                 </div>
 
 
-                <div>
+                <div className="tuukz-artworks">
                     <p>Tü.uk'z artworks</p>
                     <div className="partners">
                         {/* TODO: insert the logos and link them to their pages */}
@@ -89,10 +91,11 @@ const Home = () => {
 
             {/* LEARN ABOUT $SPELL */}
             <section className="learn">
-                <a href="#" className="learn-link">Learn about $SPELL</a>
+                <h1 className="learn-link">Learn about $SPELL</h1>
                 <h2>VIEW OUR LISTINGS</h2>
 
                 <div className="listings">
+                    {/* TODO: fix carousel component */}
                     <Carousel />
                 </div>
             </section>
@@ -100,7 +103,7 @@ const Home = () => {
             {/* JOIN THE CIRCLE */}
             <section className="circle">
                 <div className="text-section">
-                    <a href="#" className="join-link">Join the circle</a>
+                    <h1 className="join-title">Join the circle</h1>
                     <h2>CAST YOUR FIRST SPELL</h2>
                     <p>
                         This is for the dreamers, the believers, the ones who see beauty in
@@ -108,8 +111,14 @@ const Home = () => {
                         timeless in the ephemeral world of digital art.
                     </p>
                     <div className="icons">
-                        <img src="path/to/icon1.png" alt="Icon 1" />
-                        <img src="path/to/icon2.png" alt="Icon 2" />
+                        {/* TODO: remove the hardcoded links */}
+                        <a target="_blank" href="https://dexscreener.com/solana/a1xzyvolyjsbsnrhes6v4vtdxpj5bukvwkjrwskvuu4">
+                            <img src={dexscreenerLogo} alt="Dexscreener" />
+                        </a>
+
+                        <a target="_blank" href="https://ave.ai/token/8zrgK9eADL7fc5GSn8seJ4n9E22bn5a4o5JiAptVpump-solana?from=Home">
+                            <img src={aveLogo} alt="AVE" />
+                        </a>
                     </div>
                 </div>
                 <div className="image-section">

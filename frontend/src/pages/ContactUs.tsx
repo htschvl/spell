@@ -19,6 +19,7 @@ const ContactUs = () => {
                         <input type="email" placeholder="Email Address" required />
                     </div>
                     <textarea placeholder="Message" required></textarea>
+                    <br />
                     <button type="submit">Send</button>
                 </form>
             </div>
