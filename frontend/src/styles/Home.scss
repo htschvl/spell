@@ -117,6 +117,7 @@ h2 {
 }
 
 .tuukz-artworks {
+    display: none;
     font-family: 'VictorMono';
     color: #9441fb;
 }
@@ -210,4 +211,54 @@ p {
 .image-section img {
     max-width: 400px;
     border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .spellcasters-intro-container {
+        padding: 1em;
+    }
+
+    .spellcaster-intro-container--text {
+        padding-top: 2em;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .about-token--flexbox {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-token--flexbox--left-separator,
+    .about-token--flexbox--right-separator {
+        width: 100%;
+    }
+
+    .artwork img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .partners img {
+        width: 30px;
+    }
+
+    .circle {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-section {
+        max-width: 90%;
+    }
+
+    .image-section img {
+        max-width: 100%;
+    }
 }
