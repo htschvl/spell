@@ -1,0 +1,58 @@
+{
+name: "SpellGirl",
+symbol: "SPELL",
+description: "Kobeni spell test",
+image: "../img/kobeni.jpg",
+animation_url: "../sound/energetic.mp3",
+attributes: [
+{
+trait_type: "Gender",
+value: "Female"
+},
+{
+trait_type: "Type",
+value: "Dark"
+},
+{
+trait_type: "Expression",
+value: "Smile"
+},
+{
+trait_type: "Hat",
+value: "Cartwheel"
+},
+{
+trait_type: "Hair",
+value: "Long Purple"
+},
+{
+trait_type: "Eyes",
+value: "Purple"
+},
+{
+trait_type: "Mouth",
+value: "Pink"
+},
+{
+trait_type: "Clothing",
+value: "Noir Dress"
+},
+{
+trait_type: "Background",
+value: "Purple"
+}
+],
+properties: {
+category: "audio",
+files: [
+{
+uri: "../img/kobeni.jpg",
+type: "image/jpeg"
+},
+{
+uri: "../sound/energetic.mp3",
+type: "audio/mpeg"
+}
+]
+}
+}
