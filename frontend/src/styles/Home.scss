@@ -62,6 +62,12 @@ h2 {
 }
 
 .about-token {
+    padding: 20px;
+    min-height: 100vh;
+    margin: auto;
+
+    background: rgb(227, 222, 213);
+    
     h1 {
         font-family: 'VictorMono';
         color: #9441fb;
@@ -80,12 +86,6 @@ h2 {
             font-weight: 200 !important;
         }
     }
-
-    padding: 20px;
-    min-height: 100vh;
-    margin: auto;
-
-    background: rgb(227, 222, 213);
 
     &--flexbox {
         display: flex;
@@ -214,10 +214,6 @@ p {
 }
 
 @media (max-width: 768px) {
-    .spellcasters-intro-container {
-        padding: 1em;
-    }
-
     .spellcaster-intro-container--text {
         padding-top: 2em;
     }

@@ -17,8 +17,8 @@ function Header() {
         new SolflareWalletAdapter(),
     ];
 
-    const [isMobile, setIsMobile] = useState(false); // State to track mobile view
-    const [menuOpen, setMenuOpen] = useState(false); // State to track menu visibility
+    const [isMobile, setIsMobile] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
@@ -46,7 +46,7 @@ function Header() {
                                 <span className="spellcaster-logo">SPELLCASTERS</span>
                             </Link>
 
-                            <button className="hamburger" onClick={toggleMenu} style={{ borderRadius: '50%', backgroundColor: 'transparent', border: '1px solid #5a34b2' }}>
+                            <button className="hamburger" onClick={toggleMenu} style={{ borderRadius: '50%', backgroundColor: 'transparent', border: '1px solid #5a34b2', width: 'inherit' }}>
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="20" viewBox="0 0 50 50" color='#5a34b2'>
                                     <path d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z"></path>
                                 </svg>

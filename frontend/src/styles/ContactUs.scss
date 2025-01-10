@@ -64,7 +64,7 @@
         resize: vertical;
     }
 
-    button {
+    .submit-button {
         width: inherit;
         background-color: #6a0dad;
         color: white;
@@ -77,6 +77,38 @@
 
         &:hover {
             background-color: #5a0c9e;
+        }
+    }
+
+    @media (max-width: 800px) {
+        .input-fields {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            width: 90%;
+            margin: 0.5rem 0;
+        }
+
+        textarea {
+            width: 90%;
+        }
+
+        h2 {
+            font-size: 1.5em;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 0.9em;
+        }
+
+        .submit-button {
+            width: 100%;
         }
     }
 }

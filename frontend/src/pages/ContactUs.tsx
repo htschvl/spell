@@ -20,7 +20,7 @@ const ContactUs = () => {
                     </div>
                     <textarea placeholder="Message" required></textarea>
                     <br />
-                    <button type="submit">Send</button>
+                    <button className='submit-button' type="submit">Send</button>
                 </form>
             </div>
 
