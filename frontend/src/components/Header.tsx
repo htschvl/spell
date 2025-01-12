@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletModalProvider, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
-import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets';
+// import { AlphaWalletAdapter, BitpieWalletAdapter, CloverWalletAdapter, Coin98WalletAdapter, CoinbaseWalletAdapter, CoinhubWalletAdapter, FractalWalletAdapter, HuobiWalletAdapter, HyperPayWalletAdapter, KeystoneWalletAdapter, KrystalWalletAdapter, LedgerWalletAdapter, MathWalletAdapter, NekoWalletAdapter, NightlyWalletAdapter, NufiWalletAdapter, OntoWalletAdapter, PhantomWalletAdapter, SafePalWalletAdapter, SaifuWalletAdapter, SalmonWalletAdapter, SkyWalletAdapter, SolflareWalletAdapter, SolongWalletAdapter, SpotWalletAdapter, TokenaryWalletAdapter, TokenPocketWalletAdapter, TorusWalletAdapter, TrezorWalletAdapter, TrustWalletAdapter, UnsafeBurnerWalletAdapter, XDEFIWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { clusterApiUrl } from '@solana/web3.js';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 import '../styles/Header.scss';
 import '@solana/wallet-adapter-react-ui/styles.css';
@@ -12,34 +12,31 @@ import spellcastersLogo from '../assets/spellcaster-logo.avif';
 
 function Header() {
     const endpoint = clusterApiUrl('mainnet-beta'); // TODO: implements environment variables
-    const wallets = [
-        new PhantomWalletAdapter(),
-        new SolflareWalletAdapter(),
-    ];
+    const wallets = useMemo(() => [], []);
 
     const [isMobile, setIsMobile] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth < 800); // Set mobile view based on width
+            setIsMobile(window.innerWidth < 800);
         };
 
         window.addEventListener('resize', handleResize);
-        handleResize(); // Check initial size
+        handleResize();
 
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     const toggleMenu = () => {
-        setMenuOpen(!menuOpen); // Toggle menu visibility
+        setMenuOpen(!menuOpen);
     };
 
     return (
         <ConnectionProvider endpoint={endpoint}>
             <WalletProvider wallets={wallets} autoConnect>
                 <WalletModalProvider>
-                    {isMobile ? ( // Conditional rendering for mobile header
+                    {isMobile ? (
                         <header className="mobile-header">
                             <Link to="/" className='logo-container'>
                                 <img src={spellcastersLogo} alt="Spellcasters Logo" className="logo" />
@@ -51,7 +48,7 @@ function Header() {
                                     <path d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z"></path>
                                 </svg>
                             </button>
-                            {menuOpen && ( // Render menu if open
+                            {menuOpen && (
                                 <nav className="vertical-menu">
                                     <ul>
                                         <li>
