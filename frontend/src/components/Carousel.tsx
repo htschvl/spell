@@ -46,12 +46,12 @@ const Carousel = () => {
         setCurrentIndex(prev => (prev + 1) % items.length);
     };
 
-    const handleDragStart = (e) => {
+    const handleDragStart = (e: any) => {
         setIsDragging(true);
         setStartPos(e.type === 'mousedown' ? e.pageX : e.touches[0].clientX);
     };
 
-    const handleDragMove = (e) => {
+    const handleDragMove = (e: any) => {
         if (!isDragging) return;
 
         const currentPosition = e.type === 'mousemove' ? e.pageX : e.touches[0].clientX;
