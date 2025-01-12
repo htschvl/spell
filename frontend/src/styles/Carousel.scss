@@ -1,0 +1,90 @@
+.notification-carousel {
+    width: 100%;
+    max-width: 60rem; // Increased from 36rem
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 0.75rem; // Slightly larger radius
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); // Enhanced shadow
+    overflow: hidden;
+  
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      min-height: 120px; // Added minimum height
+  
+      &:active {
+        cursor: grabbing;
+      }
+    }
+  
+    .carousel-track {
+      display: flex;
+      transition: transform 0.3s ease-out;
+    }
+  
+    .carousel-item {
+      min-width: 100%;
+      padding: 3rem 1rem;
+      display: flex;
+      border-bottom: 1px solid #e5e7eb;
+      gap: 2rem; // Increased gap between icon and text
+    }
+  
+    .item-icon {
+      width: 12rem; // Larger icon container
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem; // Larger icon
+    }
+  
+    .item-text {
+      color: #374151;
+      font-family: 'VictorMono';
+      font-size: 1.25rem; // Larger text
+      flex: 1;
+      line-height: 1.5;
+    }
+  
+    .carousel-indicators {
+      position: absolute;
+      bottom: 1rem; // More space from bottom
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.75rem; // More space between indicators
+  
+      .indicator {
+        width: 0.75rem; // Larger indicators
+        height: 0.75rem;
+        border-radius: 50%;
+        background-color: #d1d5db;
+        transition: background-color 0.2s;
+  
+        &.active {
+          background-color: #3b82f6;
+        }
+      }
+    }
+  }
+  
+  // Add responsive adjustments
+  @media (max-width: 768px) {
+    .notification-carousel {
+      .carousel-item {
+        padding: 1.5rem 1rem;
+      }
+  
+      .item-icon {
+        width: 5.2rem;
+        font-size: 2rem;
+      }
+  
+      .item-text {
+        font-size: 1rem;
+        line-height: 1.4;
+        width: 80%;
+      }
+    }
+  }
