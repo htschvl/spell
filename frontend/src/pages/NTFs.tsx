@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { createUmi } from '@metaplex-foundation/umi-bundle-defaults'
+import { useWallet } from "@solana/wallet-adapter-react";
+import { walletAdapterIdentity } from "@metaplex-foundation/umi-signer-wallet-adapters";
 
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -26,11 +29,18 @@ const mockNFTs: NFT[] = [
 
 const NTFs = () => {
     const [nfts, setNfts] = useState<NFT[]>([]);
+    const wallet = useWallet()
 
     useEffect(() => {
         // Simulate fetching NFT data
         const fetchNFTs = async () => {
-            setNfts(mockNFTs);
+            console.log('connected', wallet.connected)
+            if (wallet.connected) {
+                const umi = createUmi('https://metaplex.devnet.rpcpool.com/')
+                console.log('umi', umi);
+                umi.use(walletAdapterIdentity(wallet))
+                setNfts(mockNFTs);
+            }
         };
 
         fetchNFTs(); // Call the function to fetch NFTs
