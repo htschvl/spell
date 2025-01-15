@@ -13,6 +13,8 @@
     "build-analyzer": "tsc runAnalyzer.ts && node runAnalyzer.js"
   },
   "dependencies": {
+    "@metaplex-foundation/umi": "^1.0.0",
+    "@metaplex-foundation/umi-bundle-defaults": "^1.0.0",
     "@solana/spl-token": "^0.4.9",
     "@solana/spl-token-registry": "^0.2.7",
     "@solana/wallet-adapter-base": "^0.9.23",
@@ -40,6 +42,7 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "vite-plugin-node-polyfills": "^0.22.0"
   }
 }
