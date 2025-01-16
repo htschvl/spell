@@ -1,9 +1,12 @@
 import { Outlet } from 'react-router-dom'
 import './App.scss'
+import { WalletContextProvider } from './components/WalletContextProvider'
 
 const App = () => {
   return (
-    <Outlet />
+    <WalletContextProvider>
+      <Outlet />
+    </WalletContextProvider>
   )
 }
 

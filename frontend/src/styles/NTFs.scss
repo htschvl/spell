@@ -31,9 +31,20 @@
     margin-top: 10vw;
     margin-bottom: 5vw;
     display: flex;
-    padding: 0 3em;
+    padding: 0 2em;
     justify-content: center;
     flex-wrap: wrap;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: 768px) {
+        padding: 0 4em;
+    }
+
+    @media (min-width: 1024px) {
+        padding: 0 6em;
+    }
 
     .collection-title {
         font-family: 'VictorMono';
@@ -95,4 +106,17 @@
     border-radius: 30px;
     cursor: pointer;
     margin-top: 20px;
+}
+
+.wallet-info {
+    background: rgba(90, 52, 178, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    
+    p {
+        margin: 0.5rem 0;
+        color: #5a34b2;
+        font-size: 0.9rem;
+    }
 }
