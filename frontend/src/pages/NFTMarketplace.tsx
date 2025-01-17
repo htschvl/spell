@@ -7,23 +7,28 @@ import { LAMPORTS_PER_SOL } from '@solana/web3.js';
 
 import Header from '../components/Header';
 import BuyNFTButton from '../components/BuyNFTButton';
+import PurchaseModal from '../components/PurchaseModal';
 
 import Footer from '../components/Footer';
 import '../styles/NFTMarketplace.scss';
 
+const QUICKNODE_RPC = process.env.REACT_APP_QUICKNODE_RPC || 'https://quick-side-gas.solana-devnet.quiknode.pro/abcf0c14dc61b97348f4ad07b4fa4b8c3a686a1b';
+
 const NFTMarketplace = () => {
     const [balance, setBalance] = useState<number | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const wallet = useWallet();
 
     useEffect(() => {
         const fetchWalletInfo = async () => {
             if (wallet.connected && wallet.publicKey) {
                 try {
-                    const umi = await createUmi('https://api.devnet.solana.com');
+                    const umi = await createUmi(QUICKNODE_RPC);
                     umi.use(walletAdapterIdentity(wallet));
-
-
-                    const balance = await umi.rpc.getBalance(publicKey(wallet.publicKey.toString()));
+                    
+                    console.log('balance', await umi.rpc.getBalance(publicKey(wallet.publicKey)));
+                    
+                    const balance = (await umi.rpc.getBalance(publicKey(wallet.publicKey))).basisPoints;
                     const solBalance = Number(balance) / LAMPORTS_PER_SOL;
                     setBalance(solBalance);
 
@@ -41,6 +46,7 @@ const NFTMarketplace = () => {
 
     return (
         <div className="collabs-container">
+            <PurchaseModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} nftName="NFT Name" />
             <Header />
             <section className="nft-market">
                 <h1>NFT Market</h1>

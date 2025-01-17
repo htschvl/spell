@@ -8,7 +8,6 @@ import bullishImage from '../assets/bullish.jpeg';
 import spellcasterFortune from '../assets/Spellcaster-Fortune.jpg';
 import dexscreenerLogo from '../assets/dexscreener-logo.avif';
 import aveLogo from '../assets/ave-logo.avif';
-import BuySpellButton from "../components/BuySpellButton";
 
 const Home = () => {
     return (
@@ -24,7 +23,6 @@ const Home = () => {
                         where every pixel holds a story, every glitch opens a gateway, and every collector
                         becomes part of the magic.
                     </p>
-                    <BuySpellButton />
                 </div>
                 <div className="spellcasters-contract-addr">
                     <p>Contract address: 8zrgKoeADL7c8Sn8sgHnE22lnEa4oEjAptVpump</p>

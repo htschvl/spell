@@ -15,11 +15,11 @@ function Footer() {
           <Link to="/">
             <li>$SPELL</li>
           </Link>
-          <Link to="/nfts">
-            <li>NFT Collect</li>
+          <Link to="/about">
+            <li>About</li>
           </Link>
-          <Link to="/collabs">
-            <li>Collabs</li>
+          <Link to="/buy-nft">
+            <li>Buy NFT</li>
           </Link>
         </ul>
       </div>

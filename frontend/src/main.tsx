@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { path: '/', element: <Home /> },
-      { path: '/nfts', element: <NTFs /> },
+      { path: '/about', element: <NTFs /> },
       { path: '/buy-nft', element: <NFTMarketplace /> },
       { path: '/contact', element: <ContactUs /> },
     ]

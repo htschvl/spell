@@ -9,7 +9,7 @@ const BuyNFTButton = () => {
     const mintNFT = useCallback(async () => {
         try {
             // Inicializa Umi com a conexão testnet
-            const umi = createUmi(clusterApiUrl('testnet'))
+            const umi = createUmi(clusterApiUrl('devnet'))
                 .use(mplTokenMetadata());
 
             // Verifica se há uma carteira conectada
