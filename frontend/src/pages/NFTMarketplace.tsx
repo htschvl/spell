@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
 import { publicKey } from '@metaplex-foundation/umi';
-import { LAMPORTS_PER_SOL } from '@solana/web3.js';
+import { Connection, LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
+import { Metaplex } from "@metaplex-foundation/js";
 
 import Header from '../components/Header';
 import BuyNFTButton from '../components/BuyNFTButton';
@@ -12,7 +13,8 @@ import PurchaseModal from '../components/PurchaseModal';
 import Footer from '../components/Footer';
 import '../styles/NFTMarketplace.scss';
 
-const QUICKNODE_RPC = process.env.REACT_APP_QUICKNODE_RPC || 'https://quick-side-gas.solana-devnet.quiknode.pro/abcf0c14dc61b97348f4ad07b4fa4b8c3a686a1b';
+const QUICKNODE_RPC = 'https://quick-side-gas.solana-devnet.quiknode.pro/abcf0c14dc61b97348f4ad07b4fa4b8c3a686a1b';
+const NFT_MINT_ADDRESS = 'https://sapphire-causal-wombat-971.mypinata.cloud/ipfs/bafkreiha3jlur45aunsug2uykqhmxy6rasp4vjyjlu4rwz4lmlfzq5uas4'
 
 const NFTMarketplace = () => {
     const [balance, setBalance] = useState<number | null>(null);
@@ -41,7 +43,35 @@ const NFTMarketplace = () => {
             }
         };
 
+        const getNFTTotalSupply = async(mintAddress: string) => {
+            const connection = new Connection(QUICKNODE_RPC);
+            const metaplex = new Metaplex(connection);
+            const mintPublicKey = new PublicKey(mintAddress);
+
+            try {
+                const nft = await metaplex.nfts().findByMint({ mintAddress: mintPublicKey });
+                
+                if (nft.collection) {
+                    const collectionNft = await metaplex.nfts().findByMint({ 
+                        mintAddress: nft.collection.address 
+                    });
+                    
+                    if (collectionNft.collectionDetails) {
+                        const totalSupply = collectionNft.collectionDetails.size;
+                        console.log(`Total supply of the NFT collection: ${totalSupply}`);
+                        return totalSupply;
+                    }
+                }
+                console.log('No collection details found');
+                return null;
+            } catch (error) {
+                console.error('Error fetching NFT collection details:', error);
+                return null;
+            }
+        }
+
         fetchWalletInfo();
+        getNFTTotalSupply(NFT_MINT_ADDRESS);
     }, [wallet.connected, wallet.publicKey]);
 
     return (
