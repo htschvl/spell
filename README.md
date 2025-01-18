@@ -1,0 +1,75 @@
+dad -> usr
+
+> solana-keygen grind --starts-with dad:1
+
+```
+Wrote keypair to usrrSeyYtHs2Dafidje58PEn76c4mZD7qbCw8uyQLno.json
+```
+
+> solana-keygen grind --starts-with mnt:1
+
+```
+Wrote keypair to mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9.json
+```
+
+> spl-token create-token --program-id TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb --enable-metadata --decimals 6 mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9.json
+
+```
+Creating token mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9 under program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
+To initialize metadata inside the mint, please run `spl-token initialize-metadata mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9 <YOUR_TOKEN_NAME> <YOUR_TOKEN_SYMBOL> <YOUR_TOKEN_URI>`, and sign with the mint authority.
+
+Address:  mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9
+Decimals:  6
+
+Signature: 4oXg3q9HVGJcoFUfKH2Acaba8HKbN9fCxX56b5jc9sbc9VnenjSqvonac4gNuydgprre6NDfgRAYL1jdNRrxYzt9
+```
+
+> spl-token initialize-metadata mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9 "Charm" "CHRM" "https://sapphire-causal-wombat-971.mypinata.cloud/ipfs/bafkreiha3jlur45aunsug2uykqhmxy6rasp4vjyjlu4rwz4lmlfzq5uas4"
+
+```
+Signature: 64Dmm4EFrFk8HWixrw1H3yiTBu4jf8TaP8VQop8u3mBn8akWPxcoDQxhbqHyNaUf8PRPwVWL81PnmfLRpgeFH8rn
+```
+
+> spl-token create-account mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9
+
+```
+Creating account 2PMDGCF18TLj3tyDhcS5wrsnpNmpqKcpJJiohybLfdJA
+
+Signature: 4m3YvVjxy2yd6vuj6h28qHSKTFeqeTqavSPpGv81g9G1ddo2fxtX3RDKPdBvyA2Fx1cD5xFA1kfvaPkk7nArmjL4
+```
+
+> spl-token mint mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9 6000000
+
+```
+Minting 6000000 tokens
+  Token: mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9
+  Recipient: 2PMDGCF18TLj3tyDhcS5wrsnpNmpqKcpJJiohybLfdJA
+
+Signature: 28NfFuXGji8kHkLYx5a5UH1iv4aNnvLUEduRuiwzggm4HX3KDkyhzbZASkbUUwut1ypYnvLxq3dXASoCazv7XKt3
+```
+
+> [explorer](https://explorer.solana.com/address/mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9?cluster=devnet)
+> spl-token balance mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9
+
+```
+6000000
+```
+
+> spl-token transfer mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9 1000000 9e1DR6JWSAppwNpZBLLRX2kvvnCeLYVUS8PcU8Xz588L --fund-recipient --allow-unfunded-recipient
+
+```
+Transfer 1000000 tokens
+  Sender: 2PMDGCF18TLj3tyDhcS5wrsnpNmpqKcpJJiohybLfdJA
+  Recipient: 9e1DR6JWSAppwNpZBLLRX2kvvnCeLYVUS8PcU8Xz588L
+  Recipient associated token account: 5JZ7qYYh4hwU3EaAU9Q6PR8PLkBDPGHq1EKpSUKnApnT
+  Funding recipient: 5JZ7qYYh4hwU3EaAU9Q6PR8PLkBDPGHq1EKpSUKnApnT
+
+Signature: 3FwkpyK8fbXHaV6axUxJNsZfScfyZjNWyVj1Kh8rHzk3eKeaQorvc9xGNJtZS1aZXCqebd7zPueeodcugg3j9qJJ
+
+```
+
+> spl-token authorize mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9 mint --disable
+>
+> spl-token authorize mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9 freeze --disable
+>
+> spl-token update-metadata mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9 uri https://sapphire-causal-wombat-971.mypinata.cloud/ipfs/bafkreiha3jlur45aunsug2uykqhmxy6rasp4vjyjlu4rwz4lmlfzq5uas4
