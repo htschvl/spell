@@ -65,6 +65,7 @@ const NFTMarketplace = () => {
             }
         }
 
+        // TODO: implement a function to get the total supply of an NFT collection
         // const getNFTTotalSupply = async(mintAddress: string) => {
         //     const connection = new Connection(QUICKNODE_RPC);
         //     const metaplex = new Metaplex(connection);
