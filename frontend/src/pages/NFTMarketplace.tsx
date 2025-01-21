@@ -4,17 +4,17 @@ import { useWallet } from '@solana/wallet-adapter-react';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
 import { publicKey } from '@metaplex-foundation/umi';
 import { Connection, LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
-import { Metaplex } from "@metaplex-foundation/js";
 
 import Header from '../components/Header';
 import BuyNFTButton from '../components/BuyNFTButton';
 import PurchaseModal from '../components/PurchaseModal';
-
 import Footer from '../components/Footer';
+
 import '../styles/NFTMarketplace.scss';
 
 const QUICKNODE_RPC = 'https://quick-side-gas.solana-devnet.quiknode.pro/abcf0c14dc61b97348f4ad07b4fa4b8c3a686a1b';
-const NFT_MINT_ADDRESS = 'https://sapphire-causal-wombat-971.mypinata.cloud/ipfs/bafkreiha3jlur45aunsug2uykqhmxy6rasp4vjyjlu4rwz4lmlfzq5uas4'
+const NFT_MINT_ADDRESS = 'mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9'
+const SOLANA_CONNECTION = new Connection(QUICKNODE_RPC);
 
 const NFTMarketplace = () => {
     const [balance, setBalance] = useState<number | null>(null);
@@ -43,35 +43,58 @@ const NFTMarketplace = () => {
             }
         };
 
-        const getNFTTotalSupply = async(mintAddress: string) => {
-            const connection = new Connection(QUICKNODE_RPC);
-            const metaplex = new Metaplex(connection);
-            const mintPublicKey = new PublicKey(mintAddress);
-
-            try {
-                const nft = await metaplex.nfts().findByMint({ mintAddress: mintPublicKey });
-                
-                if (nft.collection) {
-                    const collectionNft = await metaplex.nfts().findByMint({ 
-                        mintAddress: nft.collection.address 
+        const getTokenBalanceWeb3 = async(accountPublicKey: PublicKey, mintAccount: PublicKey) => {
+            if (wallet.connected && wallet.publicKey) {
+                try {
+                    // Get the token accounts for the given wallet and mint
+                    const tokenAccounts = await SOLANA_CONNECTION.getTokenAccountsByOwner(accountPublicKey, {
+                        mint: mintAccount
                     });
-                    
-                    if (collectionNft.collectionDetails) {
-                        const totalSupply = collectionNft.collectionDetails.size;
-                        console.log(`Total supply of the NFT collection: ${totalSupply}`);
-                        return totalSupply;
+            
+                    if (tokenAccounts.value.length === 0) {
+                        console.log("No token accounts found for this wallet and mint.");
+                    } else {
+                        // Fetch the balance for the first token account
+                        const tokenAccount = tokenAccounts.value[0];
+                        const balance = await SOLANA_CONNECTION.getTokenAccountBalance(tokenAccount.pubkey);
+                        console.log("Token balance:", Number(balance.value.amount) / 1000000);
                     }
+                } catch (error) {
+                    console.error("Error fetching token balance:", error);
                 }
-                console.log('No collection details found');
-                return null;
-            } catch (error) {
-                console.error('Error fetching NFT collection details:', error);
-                return null;
             }
         }
 
+        // const getNFTTotalSupply = async(mintAddress: string) => {
+        //     const connection = new Connection(QUICKNODE_RPC);
+        //     const metaplex = new Metaplex(connection);
+        //     const mintPublicKey = new PublicKey(mintAddress);
+
+        //     try {
+        //         const nft = await metaplex.nfts().findByMint({ mintAddress: mintPublicKey });
+                
+        //         if (nft.collection) {
+        //             const collectionNft = await metaplex.nfts().findByMint({ 
+        //                 mintAddress: nft.collection.address 
+        //             });
+                    
+        //             if (collectionNft.collectionDetails) {
+        //                 const totalSupply = collectionNft.collectionDetails.size;
+        //                 console.log(`Total supply of the NFT collection: ${totalSupply}`);
+        //                 return totalSupply;
+        //             }
+        //         }
+        //         console.log('No collection details found');
+        //         return null;
+        //     } catch (error) {
+        //         console.error('Error fetching NFT collection details:', error);
+        //         return null;
+        //     }
+        // }
+
         fetchWalletInfo();
-        getNFTTotalSupply(NFT_MINT_ADDRESS);
+        getTokenBalanceWeb3(wallet.publicKey!, new PublicKey(NFT_MINT_ADDRESS));
+        // getNFTTotalSupply(NFT_MINT_ADDRESS);
     }, [wallet.connected, wallet.publicKey]);
 
     return (
