@@ -62,7 +62,7 @@ function HeaderContent({ isMobile, menuOpen, setIsMobile, setMenuOpen }: any) {
                 <nav className="vertical-menu">
                     <ul>
                         <li>
-                            <Link to="/nfts">About</Link>
+                            <Link to="/about">About</Link>
                         </li>
                         {/* <li>
                             <Link to="/buy-nft">Buy your NFT</Link>

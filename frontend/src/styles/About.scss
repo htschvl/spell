@@ -8,14 +8,14 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 90vh;
+    height: 50vh;
 }
 
 
 .intro h1 {
     margin-top: 20vh;
     font-size: 1em;
-    color: white !important;
+    color: #d4d2e5 !important;
     font-family: 'VictorMono';
 }
 
@@ -46,15 +46,37 @@
         padding: 0 6em;
     }
 
-    .collection-title {
-        font-family: 'VictorMono';
-        color: #9441fb;
-    }
+    
+    .collection-container {
+        .collection-title {
+            font-family: 'VictorMono';
+            color: #9441fb;
+        }
+    
+        .collection-subtitle {
+            font-family: 'Blake';
+            font-size: 2.5em;
+            font-weight: 600 !important;
+            color: #000;
+        }
 
-    .collection-subtitle {
-        font-family: 'Blake';
-        font-size: 2.5em;
-        font-weight: 600 !important;
+        .about-the-autor {
+            margin-top: 5em;
+
+            .paragraph-title {
+                font-family: 'Blake';
+                color: #000;
+                font-size: 2em;
+            }
+
+            .paragraph-text {
+                font-family: 'VictorMono';
+                color: #374951;
+
+                margin-bottom: 5em;
+            }
+        }
+
     }
 }
 
@@ -64,37 +86,33 @@
     border: 1px solid #ecedef;
     border-radius: 3%;
     text-align: center;
-
-    .nft-name {
-        font-family: 'Blake';
-        font-weight: 600;
-    }
-
-    .nft-status {
-        font-family: 'VictorMono';
-        color: #69767c;
-    }
 }
 
 .nft-item img {
     border-radius: 50%;
-    width: 260px;
+    width: 300px;
 }
 
 .lower-section {
     margin-bottom: 100px;
 
-    p {
+    .lower-section-title {
         font-family: 'VictorMono';
         color: #9441fb;
         font-size: 1.5em;
     }
 
-    h3 {
+    .lower-section-subtitle {
         font-family: 'Blake';
         font-weight: 600;
         font-size: 2em;
         padding-bottom: 1em;
+    }
+
+    .lower-section-text {
+        font-family: 'VictorMono';
+        color: #374951;
+        font-size: 1em;
     }
 }
 

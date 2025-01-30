@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 
 import App from './App.tsx'
 import Home from './pages/Home.tsx'
-import NTFs from './pages/NTFs.tsx'
+import About from './pages/About.tsx'
 import NFTMarketplace from './pages/NFTMarketplace.tsx'
 import ContactUs from './pages/ContactUs.tsx'
 import NotFound from './pages/NotFound.tsx'
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { path: '/', element: <Home /> },
-      { path: '/about', element: <NTFs /> },
+      { path: '/about', element: <About /> },
       { path: '/buy-nft', element: <NFTMarketplace /> },
       { path: '/contact', element: <ContactUs /> },
     ]
