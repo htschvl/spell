@@ -15,20 +15,12 @@ function Footer() {
           <Link to="/">
             <li>$SPELL</li>
           </Link>
-          <Link to="/about">
-            <li>About</li>
-          </Link>
-          <Link to="/buy-nft">
-            <li>Buy NFT</li>
-          </Link>
         </ul>
       </div>
       <div className="footer-right">
         <div className="social-icons">
           <img src="path/to/twitter-icon.png" alt="Twitter" />
           <img src="path/to/telegram-icon.png" alt="Telegram" />
-          <img src="path/to/instagram-icon.png" alt="Instagram" />
-          <img src="path/to/other-icon.png" alt="Other" />
         </div>
         <p>Follow us</p>
       </div>
