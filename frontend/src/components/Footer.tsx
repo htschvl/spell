@@ -2,6 +2,9 @@ import '../styles/Footer.scss';
 import spellcastersLogo from '../assets/spellcaster-logo.avif';
 import { Link } from 'react-router-dom';
 
+import twitterIcon from '../assets/twitter.png';
+import telegramIcon from '../assets/telegram.png';
+
 function Footer() {
   return (
     <footer className="footer">
@@ -18,11 +21,17 @@ function Footer() {
         </ul>
       </div>
       <div className="footer-right">
-        <div className="social-icons">
-          <img src="path/to/twitter-icon.png" alt="Twitter" />
-          <img src="path/to/telegram-icon.png" alt="Telegram" />
+        <div className="footer-right-section">
+          <div className="social-icons">
+            <a href="https://x.com/spellcasterart" target="_blank" rel="noopener noreferrer">
+              <img src={twitterIcon} alt="Twitter" />
+            </a>
+            <a href="https://t.me/spellcasterart" target="_blank" rel="noopener noreferrer">
+              <img src={telegramIcon} alt="Telegram" />
+            </a>
+          </div>
+          <p>Follow Spellcaster</p>
         </div>
-        <p>Follow us</p>
       </div>
     </footer>
   );
