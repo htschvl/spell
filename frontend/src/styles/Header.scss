@@ -69,7 +69,7 @@ a {
     font-weight: 600;
 
     &:visited {
-        color: #051b2599;
+        color: #fff;
     }
 }
 
@@ -80,13 +80,13 @@ a {
 
 
 .spellcaster-logo {
-    color: #051b25 !important;
+    color: #fff !important;
     font-family: 'Blake';
     margin-left: 0.5em;
     font-size: 20px;
 
     &:hover {
-        color: #051b25 !important;
+        color: #fff !important;
     }
 }
 
@@ -96,6 +96,21 @@ nav ul {
     gap: 20px;
 
     li {
+        a {
+            color: #fff;
+
+            &:hover {
+                color: #fff;
+            }
+
+            &:active {
+                color: #fff;
+            }
+
+            &:visited {
+                color: #fff;
+            }
+        }
         font-family: 'VictorMono';
     }
 }

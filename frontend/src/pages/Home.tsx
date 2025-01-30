@@ -4,7 +4,7 @@ import Carousel from "../components/Carousel";
 
 import '../styles/Home.scss';
 
-import bullishImage from '../assets/bullish.jpeg';
+import empressImage from '../assets/empress.jpg';
 import spellcasterFortune from '../assets/Spellcaster-Fortune.jpg';
 import dexscreenerLogo from '../assets/dexscreener-logo.avif';
 import aveLogo from '../assets/ave-logo.avif';
@@ -67,7 +67,7 @@ const Home = () => {
 
                     <div className="about-token--flexbox--right-separator">
                         <div className="artwork">
-                            <img src={bullishImage} alt="Artwork" />
+                            <img src={empressImage} alt="Artwork" />
                         </div>
                     </div>
                 </div>

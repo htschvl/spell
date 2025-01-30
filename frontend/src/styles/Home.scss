@@ -4,7 +4,7 @@
     text-align: center;
     min-height: 100vh;
 
-    background-image: url('../assets/worlds2.jpeg');
+    background-image: url('../assets/spellcasting.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -24,8 +24,8 @@
 
 .spellcaster-intro-container--text {
     font-family: 'VictorMono';
-    color: #6b7577;
-    padding-top: 10em;
+    color: #fff;
+    padding-top: 15em;
 
     display: grid;
     align-items: center;
@@ -33,16 +33,17 @@
 }
 
 h1 {
+    color: #fff;
     font-size: 1em;
     margin: 0.5em 0;
     font-weight: 300 !important;
 }
 
 h2 {
+    color: #fff;
     font-size: 3em;
     margin: 0.5em 0;
     font-family: 'Blake';
-    color: #000;
 }
 
 .about-spellcaster {
@@ -128,17 +129,20 @@ h2 {
     margin-top: 50px;
     margin: auto;
     text-align: left;
+
+    .learn-link {
+        font-family: 'VictorMono';
+        color: #9441fb;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    h2 {
+        color: #000;
+        margin-top: 10px;
+    }
 }
 
-.learn-link {
-    color: purple;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-h2 {
-    margin-top: 10px;
-}
 
 .listings {
     margin-top: 100px;
