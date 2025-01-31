@@ -1,0 +1,140 @@
+.ntfs-page {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.intro {
+    background-image: url('../assets/spellcaster.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh;
+}
+
+
+.intro h1 {
+    margin-top: 20vh;
+    font-size: 1em;
+    color: #d4d2e5 !important;
+    font-family: 'VictorMono';
+}
+
+.intro h2 {
+    font-size: 2.5em;
+    // width: 30%;
+    // margin-left: 35%;
+    color: white !important;
+    font-family: 'Blake';
+}
+
+.collection {
+    margin-top: 10vw;
+    margin-bottom: 5vw;
+    display: flex;
+    padding: 0 2em;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: 768px) {
+        padding: 0 4em;
+    }
+
+    @media (min-width: 1024px) {
+        padding: 0 6em;
+    }
+
+    
+    .collection-container {
+        .collection-title {
+            font-family: 'VictorMono';
+            color: #9441fb;
+        }
+    
+        .collection-subtitle {
+            font-family: 'Blake';
+            font-size: 2.5em;
+            font-weight: 600 !important;
+            color: #000;
+        }
+
+        .about-the-autor {
+            margin-top: 5em;
+
+            .paragraph-title {
+                font-family: 'Blake';
+                color: #000;
+                font-size: 2em;
+            }
+
+            .paragraph-text {
+                font-family: 'VictorMono';
+                color: #374951;
+
+                margin-bottom: 5em;
+            }
+        }
+
+    }
+}
+
+.nft-item {
+    margin: 10px;
+    padding: 40px 20px;
+    border: 1px solid #ecedef;
+    border-radius: 3%;
+    text-align: center;
+}
+
+.nft-item img {
+    border-radius: 50%;
+    width: 300px;
+}
+
+.lower-section {
+    margin-bottom: 100px;
+
+    .lower-section-title {
+        font-family: 'VictorMono';
+        color: #9441fb;
+        font-size: 1.5em;
+    }
+
+    .lower-section-subtitle {
+        font-family: 'Blake';
+        font-weight: 600;
+        font-size: 2em;
+        padding-bottom: 1em;
+    }
+
+    .lower-section-text {
+        font-family: 'VictorMono';
+        color: #374951;
+        font-size: 1em;
+    }
+}
+
+.buy-spell {
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.wallet-info {
+    background: rgba(90, 52, 178, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    
+    p {
+        margin: 0.5rem 0;
+        color: #5a34b2;
+        font-size: 0.9rem;
+    }
+}

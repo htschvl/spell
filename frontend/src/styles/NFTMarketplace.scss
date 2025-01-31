@@ -1,0 +1,35 @@
+.collabs-container {
+    background-image: url('../assets/worlds.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    text-align: center;
+    height: 70vh;
+
+    h1 {
+        margin-top: 10%;
+    }
+}
+
+.nft-market {
+    margin-top: 40px;
+}
+
+.buy-nft-section {
+    margin-top: 60vh;
+    margin-bottom: 30vh;
+}
+
+.collab-item {
+    border: 1px solid black;
+    width: 70vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.collab-info {
+    margin-left: 20px;
+} 
