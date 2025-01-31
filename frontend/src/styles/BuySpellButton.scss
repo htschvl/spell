@@ -1,0 +1,16 @@
+.buy-spell {
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.5em;
+    font-family: 'VictorMono';
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+
+    &:hover {
+        background-color: #5a0c9e;
+    }
+}
