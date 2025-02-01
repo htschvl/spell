@@ -19,11 +19,11 @@ const BuyNFTButton = () => {
             }
 
             // Correção na chamada de criação do NFT
-            const nft = await mplTokenMetadata.createFungible(umi, {
-                name: 'Meu NFT',
-                uri: 'https://seu-metadata-uri.json',
-                sellerFeeBasisPoints: 500,
-            });
+            // const nft = await mplTokenMetadata.createFungible(umi, {
+            //     name: 'Meu NFT',
+            //     uri: 'https://seu-metadata-uri.json',
+            //     sellerFeeBasisPoints: 500,
+            // });
 
             alert(`NFT cunhado com sucesso! Endereço: ${nft.toString()}`);
         } catch (error) {
