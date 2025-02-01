@@ -25,7 +25,7 @@ const BuyNFTButton = () => {
             //     sellerFeeBasisPoints: 500,
             // });
 
-            alert(`NFT cunhado com sucesso! Endereço: ${nft.toString()}`);
+            // alert(`NFT cunhado com sucesso! Endereço: ${nft.toString()}`);
         } catch (error) {
             console.error('Erro ao cunhar NFT:', error);
             alert('Erro ao cunhar NFT!');
