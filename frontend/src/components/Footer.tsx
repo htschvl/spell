@@ -15,7 +15,15 @@ function Footer() {
       </div>
       <div className="footer-center">
         <ul>
-          <Link to="/">
+          <Link 
+            to="/"
+            onClick={() => {
+              window.scroll({
+                top: 0,
+                left: 0,
+              });
+            }}
+          >
             <li>$SPELL</li>
           </Link>
         </ul>
