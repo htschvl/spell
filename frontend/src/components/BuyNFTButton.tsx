@@ -3,12 +3,13 @@
 // import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
 // import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
 
-import { generateSigner } from '@metaplex-foundation/umi';
+import { generateSigner, transactionBuilder } from '@metaplex-foundation/umi';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
 import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
 import { clusterApiUrl } from '@solana/web3.js';
 
 import '../styles/BuyNFTButton.scss';
+import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
 
 const CANDY_MACHINE_PUBLIC_KEY = 'CndyV3LdqHUfDLmE5naZjVN8rBZz4tqhdefbAnjHG3JR'
 
@@ -42,8 +43,8 @@ const BuyNFTButton = () => {
     const nftMint = generateSigner(umi);
 
     const mintNFT = async () => {
-        const candyMachine = await CandyMachine.load(umi, new PublicKey(CANDY_MACHINE_PUBLIC_KEY));
-        const nftMint = generateSigner(umi);
+        await transactionBuilder()
+              .add(setComputeUnitLimit(umi, { units: 1000000 }))
     }
 
     return (
