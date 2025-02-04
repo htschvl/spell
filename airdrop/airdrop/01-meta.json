@@ -1,0 +1,14 @@
+{
+  "name": "Airdrop NFT - 01.jpeg",
+  "description": "Spellcast exclusive NFT airdrop for selected users.",
+  "image": "01.jpeg",
+  "attributes": [],
+  "properties": {
+    "files": [
+      {
+        "uri": "01.jpeg",
+        "type": "image/jpeg"
+      }
+    ]
+  }
+}

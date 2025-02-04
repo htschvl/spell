@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "airsend": "deno run --allow-read --allow-write airsend.ts"
+  },
+  "imports": {
+    "@metaplex-foundation/mpl-token-metadata": "npm:@metaplex-foundation/mpl-token-metadata@^3.4.0",
+    "@metaplex-foundation/umi": "npm:@metaplex-foundation/umi@^1.0.0",
+    "@metaplex-foundation/umi-bundle-defaults": "npm:@metaplex-foundation/umi-bundle-defaults@^1.0.0",
+    "@metaplex-foundation/umi-uploader-irys": "npm:@metaplex-foundation/umi-uploader-irys@^1.0.0",
+    "@std/assert": "jsr:@std/assert@1"
+  }
+}
