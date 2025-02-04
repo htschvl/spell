@@ -1,7 +1,8 @@
-sugar launch
+> sugar launch
 
-https://developers.metaplex.com/candy-machine/sugar/configuration
+[candy machine docs](https://developers.metaplex.com/candy-machine/sugar/configuration)
 
+```
 seller fee basis points? › 2000 (20%)
 
 ✔ Found 7 file pairs in "assets". Is this how many NFTs you will have in your candy machine? · yes
@@ -15,8 +16,8 @@ seller fee basis points? › 2000 (20%)
 ✔ What upload method do you want to use? · Bundlr
 ✔ Do you want your NFTs to remain mutable? We HIGHLY recommend you choose yes. · yes
 
-https://solana.fm/address/48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ?cluster=devnet-alpha
-
 sugar deploy
 
 sugar verify
+```
+[48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ](https://solana.fm/address/48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ?cluster=devnet-alpha)
