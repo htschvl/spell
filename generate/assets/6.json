@@ -1,0 +1,20 @@
+{
+  "name": "Spell #0006",
+  "symbol": "SPELL",
+  "description": "Collection on the blockchain",
+  "image": "6.jpeg",
+  "attributes": [
+    {
+      "trait_type": "Name",
+      "value": "6"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "6.jpeg",
+        "type": "image/jpeg"
+      }
+    ]
+  }
+}

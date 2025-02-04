@@ -1,0 +1,15 @@
+{
+  "name": "Spellcaster collection",
+  "symbol": "SPELL",
+  "description": "Collection of casts on the blockchain.",
+  "image": "collection.jpeg",
+  "attributes": [],
+  "properties": {
+    "files": [
+      {
+        "uri": "collection.jpeg",
+        "type": "image/jpeg"
+      }
+    ]
+  }
+}
