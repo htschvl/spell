@@ -64,9 +64,9 @@ function HeaderContent({ isMobile, menuOpen, setIsMobile, setMenuOpen }: any) {
                         <li>
                             <Link to="/about">About</Link>
                         </li>
-                        {/* <li>
+                        <li>
                             <Link to="/buy-nft">Buy your NFT</Link>
-                        </li> */}
+                        </li>
                         <li>
                             <Link to="/contact">Contact</Link>
                         </li>
@@ -87,9 +87,9 @@ function HeaderContent({ isMobile, menuOpen, setIsMobile, setMenuOpen }: any) {
                     <li>
                         <Link to="/about">About</Link>
                     </li>
-                    {/* <li>
+                    <li>
                         <Link to="/buy-nft">Buy your NFT</Link>
-                    </li> */}
+                    </li>
                     <li>
                         <Link to="/contact">Contact</Link>
                     </li>

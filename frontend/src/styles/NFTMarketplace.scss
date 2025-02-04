@@ -1,5 +1,5 @@
 .collabs-container {
-    background-image: url('../assets/worlds.jpeg');
+    background-image: url('../assets/spellcasting.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -19,6 +19,24 @@
 .buy-nft-section {
     margin-top: 60vh;
     margin-bottom: 30vh;
+
+    &--text {
+        font-family: 'VictorMono';
+        color: #9441fb;
+        display: grid;
+    }
+     
+    &--title {
+        font-family: 'Blake';
+        color: #000;
+        display: grid;
+    }
+
+    &--subtext {
+        font-family: 'VictorMono';
+        color: #666;
+        display: grid;
+    }
 }
 
 .collab-item {

@@ -11,6 +11,7 @@ import PurchaseModal from '../components/PurchaseModal';
 import Footer from '../components/Footer';
 
 import '../styles/NFTMarketplace.scss';
+import { fetchDigitalAsset } from '@metaplex-foundation/mpl-token-metadata';
 
 const QUICKNODE_RPC = 'https://quick-side-gas.solana-devnet.quiknode.pro/abcf0c14dc61b97348f4ad07b4fa4b8c3a686a1b';
 const NFT_MINT_ADDRESS = 'mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9'
@@ -66,36 +67,38 @@ const NFTMarketplace = () => {
         }
 
         // TODO: implement a function to get the total supply of an NFT collection
-        // const getNFTTotalSupply = async(mintAddress: string) => {
-        //     const connection = new Connection(QUICKNODE_RPC);
-        //     const metaplex = new Metaplex(connection);
-        //     const mintPublicKey = new PublicKey(mintAddress);
-
-        //     try {
-        //         const nft = await metaplex.nfts().findByMint({ mintAddress: mintPublicKey });
+        const getNFTTotalSupply = async (mintAddress: string) => {
+            if (!wallet.connected) return null;
+            
+            try {
+                const umi = createUmi(QUICKNODE_RPC)
+                    .use(walletAdapterIdentity(wallet));
                 
-        //         if (nft.collection) {
-        //             const collectionNft = await metaplex.nfts().findByMint({ 
-        //                 mintAddress: nft.collection.address 
-        //             });
+                const nftMint = publicKey(mintAddress);
+                const metadata = await fetchDigitalAsset(umi, nftMint);
+                
+                if (metadata.metadata.collection) {
+                    const collectionMint = metadata.metadata.collection.key;
+                    const collectionMetadata = await fetchDigitalAsset(umi, collectionMint);
                     
-        //             if (collectionNft.collectionDetails) {
-        //                 const totalSupply = collectionNft.collectionDetails.size;
-        //                 console.log(`Total supply of the NFT collection: ${totalSupply}`);
-        //                 return totalSupply;
-        //             }
-        //         }
-        //         console.log('No collection details found');
-        //         return null;
-        //     } catch (error) {
-        //         console.error('Error fetching NFT collection details:', error);
-        //         return null;
-        //     }
-        // }
+                    if (collectionMetadata.metadata.collectionDetails) {
+                        const supply = Number(collectionMetadata.metadata.collectionDetails.size);
+                        console.log(`Total supply of the NFT collection: ${supply}`);
+                        return supply;
+                    }
+                }
+                
+                console.log('No collection details found');
+                return null;
+            } catch (error) {
+                console.error('Error fetching NFT collection details:', error);
+                return null;
+            }
+        };
 
         fetchWalletInfo();
         getTokenBalanceWeb3(wallet.publicKey!, new PublicKey(NFT_MINT_ADDRESS));
-        // getNFTTotalSupply(NFT_MINT_ADDRESS);
+        getNFTTotalSupply(NFT_MINT_ADDRESS);
     }, [wallet.connected, wallet.publicKey]);
 
     return (
@@ -108,22 +111,15 @@ const NFTMarketplace = () => {
             </section>
 
             <section className="buy-nft-section">
-                {wallet.connected && wallet.publicKey && (
-                    <div className="wallet-info">
-                        <p>Carteira conectada: {wallet.publicKey.toString()}</p>
-                        {balance !== null && <p>Saldo: {balance.toFixed(4)} SOL</p>}
-                    </div>
-                )}
-
-                <p>A new random NFT for you</p>
-                <h2>BUY YOUR NEW NFT BELLOW</h2>
+                <p className="buy-nft-section--text">A new random NFT for you</p>
+                <h2 className="buy-nft-section--title">BUY YOUR NEW NFT BELLOW</h2>
 
                 <div className="lower-section">
                     {wallet.connected && wallet.publicKey ? (
                         <BuyNFTButton />
                     ) : (
                         <>
-                            <p>Connect your wallet and have your own spell now!</p>
+                            <p className="buy-nft-section--subtext">Connect your wallet and have your own spell now!</p>
                         </>
                     )}
                 </div>
