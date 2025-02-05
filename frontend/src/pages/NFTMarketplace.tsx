@@ -119,7 +119,7 @@ const NFTMarketplace = () => {
                         <BuyNFTButton />
                     ) : (
                         <>
-                            <p className="buy-nft-section--subtext">Connect your wallet and have your own spell now!</p>
+                            <p className="buy-nft-section--subtext">Connect your wallet first</p>
                         </>
                     )}
                 </div>

@@ -1,57 +1,52 @@
-// import { useCallback } from 'react';
-// import { clusterApiUrl } from '@solana/web3.js';
-// import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
-// import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
-
-import { generateSigner, PublicKey, transactionBuilder } from '@metaplex-foundation/umi';
+import { generateSigner, publicKey as createPublicKey, transactionBuilder } from '@metaplex-foundation/umi';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
-import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
+import { fetchDigitalAsset, mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
+import { fetchCandyMachine, mintFromCandyMachineV2, mplCandyMachine } from '@metaplex-foundation/mpl-candy-machine'
 import { clusterApiUrl } from '@solana/web3.js';
 import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
-
-import '../styles/BuyNFTButton.scss';
-import { mint } from '@metaplex-foundation/mpl-candy-machine';
-
-const CANDY_MACHINE_PUBLIC_KEY = 'CndyV3LdqHUfDLmE5naZjVN8rBZz4tqhdefbAnjHG3JR'
-const NFT_ADDRESS = '48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ';
+import { useWallet } from '@solana/wallet-adapter-react';
+import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
 
 const BuyNFTButton = () => {
-    const umi = createUmi(clusterApiUrl('devnet')).use(mplTokenMetadata());
+    const { publicKey, signTransaction, signAllTransactions } = useWallet();
 
-    const buyNFT = async () => {
+    const umi = createUmi(clusterApiUrl('devnet'))
+                .use(mplTokenMetadata())
+                .use(mplCandyMachine());
+
+    if (publicKey && signTransaction && signAllTransactions) {
+        umi.use(walletAdapterIdentity({ publicKey, signTransaction, signAllTransactions }));
+    }
+
+    const mintNFT = async () => {
+        const candyMachineAddress = createPublicKey('48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ')
+        const candyMachine = await fetchCandyMachine(umi, candyMachineAddress);
+        
+        const nftMint = generateSigner(umi);
+        const nftOwner = generateSigner(umi).publicKey;
+        const collectionNft = fetchDigitalAsset(umi, candyMachine.collectionMint);
+
         try {
-            // Verifica se há uma carteira conectada
-            if (!umi.identity.publicKey) {
-                alert('Por favor, conecte sua carteira primeiro!');
-                return;
-            }
-
-            const transaction = transactionBuilder()
-                .add(setComputeUnitLimit(umi, { units: 1000000 }))
-                .add(
-                    mint(umi, {
-                        candyMachine: CANDY_MACHINE_PUBLIC_KEY as PublicKey,
-                        collectionMint: NFT_ADDRESS as PublicKey,
-                        nftMint: umi.identity.publicKey,
-                        collectionUpdateAuthority: umi.identity.publicKey
-                    })
-                )
-                // Aqui adicionaremos a instrução de transferência do NFT
-                // Você precisará implementar a lógica específica de transferência
-                // baseada no seu caso de uso (marketplace, venda direta, etc.)
-
-            const result = await transaction.sendAndConfirm(umi);
-            
-            alert('NFT comprado com sucesso!');
-            console.log('Transação:', result.signature);
+            await transactionBuilder()
+              .add(setComputeUnitLimit(umi, { units: 800_000 }))
+              .add(
+                mintFromCandyMachineV2(umi, {
+                    candyMachine: candyMachine.publicKey,
+                    mintAuthority: umi.identity,
+                    nftOwner,
+                    nftMint,
+                    collectionMint: (await collectionNft).publicKey,
+                    collectionUpdateAuthority: (await collectionNft).metadata.updateAuthority,
+                  })
+              )
+              .sendAndConfirm(umi);
         } catch (error) {
-            console.error('Erro ao comprar NFT:', error);
-            alert('Erro ao comprar o NFT!');
+            console.error('Error minting NFT:', error);
         }
-    };
+    }
 
     return (
-        <button className="buy-nft" onClick={buyNFT}>
+        <button className="buy-nft" onClick={mintNFT}>
             Cast a Spell
         </button>
     );
