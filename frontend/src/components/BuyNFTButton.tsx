@@ -1,18 +1,21 @@
-import { generateSigner, publicKey as createPublicKey, transactionBuilder, some } from '@metaplex-foundation/umi';
+import { generateSigner, publicKey as createPublicKey, transactionBuilder } from '@metaplex-foundation/umi';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
-import { fetchDigitalAsset, mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
-import { create, fetchCandyMachine, getMplCandyGuardErrorFromName, mintFromCandyMachineV2, mintV2, mplCandyMachine } from '@metaplex-foundation/mpl-candy-machine'
-import { clusterApiUrl } from '@solana/web3.js';
-import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox';
+import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
+import { fetchCandyMachine, mintV2, mplCandyMachine } from '@metaplex-foundation/mpl-candy-machine'
+// import { mplCandyGuard } from '@metaplex-foundation/mpl-candy-guard';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
+import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox'
 
 import '../styles/BuyNFTButton.scss';
 
 const BuyNFTButton = () => {
     const { publicKey, signTransaction, signAllTransactions } = useWallet();
-
-    const umi = createUmi(clusterApiUrl('devnet'))
+    const QUICKNODE_RPC = 'https://quick-side-gas.solana-devnet.quiknode.pro/abcf0c14dc61b97348f4ad07b4fa4b8c3a686a1b';
+    const CANDY_MACHINE_ADDRESS = '48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ';
+    // const NFT_MINT_ADDRESS = 'mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9'
+    
+    const umi = createUmi(QUICKNODE_RPC)
                 .use(mplTokenMetadata())
                 .use(mplCandyMachine())
 
@@ -21,27 +24,29 @@ const BuyNFTButton = () => {
     }
 
     const mintNFT = async () => {
-        const candyMachineAddress = createPublicKey('48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ')
+        const candyMachineAddress = createPublicKey(CANDY_MACHINE_ADDRESS)
         const candyMachine = await fetchCandyMachine(umi, candyMachineAddress);
         
         const nftMint = generateSigner(umi);
-        const nftOwner = generateSigner(umi).publicKey;
-        const collectionNft = fetchDigitalAsset(umi, candyMachine.collectionMint);
+
+        console.log('candyMachine', candyMachine);
+        console.log('nftMint', nftMint);
 
         try {
             await transactionBuilder()
               .add(setComputeUnitLimit(umi, { units: 1000000 }))
               .add(
-                mintFromCandyMachineV2(umi, {
+                mintV2(umi, {
                     candyMachine: candyMachine.publicKey,
-                    mintAuthority: umi.identity,
-                    nftOwner,
-                    nftMint,
-                    collectionMint: (await collectionNft).publicKey,
-                    collectionUpdateAuthority: (await collectionNft).metadata.updateAuthority,
-                  })
+                    nftMint: nftMint,
+                    collectionMint: candyMachine.collectionMint,
+                    collectionUpdateAuthority: candyMachine.authority,
+                    candyGuard: candyMachine.mintAuthority
+                })
               )
               .sendAndConfirm(umi);
+
+              console.log('NFT minted successfully');
         } catch (error) {
             console.error('Error minting NFT:', error);
         }
