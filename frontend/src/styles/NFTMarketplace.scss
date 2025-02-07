@@ -14,6 +14,20 @@
 
 .nft-market {
     margin-top: 40px;
+
+    &--title {
+        font-family: 'Blake';
+        color: #fff;
+        display: grid;
+    }
+
+    &--text {
+        font-family: 'VictorMono';
+        color: #fff;
+        display: grid;
+    }
+    
+    
 }
 
 .buy-nft-section {
