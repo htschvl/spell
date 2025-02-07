@@ -7,13 +7,11 @@ import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-ad
 import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox'
 
 import '../styles/BuyNFTButton.scss';
-import { SendTransactionError } from '@solana/web3.js';
 
 const BuyNFTButton = () => {
     const { publicKey, signTransaction, signAllTransactions } = useWallet();
     const QUICKNODE_RPC = 'https://quick-side-gas.solana-devnet.quiknode.pro/abcf0c14dc61b97348f4ad07b4fa4b8c3a686a1b';
     const CANDY_MACHINE_ADDRESS = '48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ';
-    // const NFT_MINT_ADDRESS = 'mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9'
     
     const umi = createUmi(QUICKNODE_RPC)
                 .use(mplTokenMetadata())
