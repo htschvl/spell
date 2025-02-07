@@ -20,3 +20,5 @@ https://solana.fm/address/48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ?cluster=d
 sugar deploy
 
 sugar verify
+
+- https://www.quicknode.com/guides/solana-development/nfts/how-to-deploy-an-nft-collection-on-solana-using-sugar-candy-machine-umi
