@@ -10,6 +10,7 @@ type Metadata = {
   attributes: { trait_type: string; value: string }[];
   properties: {
     files: { uri: string; type: string }[];
+    category: string;
   };
 };
 
@@ -66,6 +67,7 @@ function generateMetadata(filePath: string) {
           type: `image/${ext}`,
         },
       ],
+      category: "image",
     },
   };
 
