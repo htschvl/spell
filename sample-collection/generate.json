@@ -1,0 +1,9 @@
+{
+    "name": "Spellcaster collection",
+    "symbol": "SPELL",
+    "description": "Collection of casts on the blockchain.",
+    "attr.trait": "Name",
+    "attr.value": "",
+    "collection.name": "Spellcaster collection",
+    "collection.description": "Collection of casts on the blockchain."
+}

@@ -1,0 +1,74 @@
+{
+  "program": {
+    "candyMachine": "48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ",
+    "candyGuard": "",
+    "candyMachineCreator": "3P6epUraxuFewJU1bqU44yb8ocCEDFdtSpn9M7XPGvmY",
+    "collectionMint": "FJQ6zmjfhNnwopG3zKT7WR1DR1QJgrGD4nkZECcrCNC6"
+  },
+  "items": {
+    "-1": {
+      "name": "Spellcaster collection",
+      "image_hash": "7a6a8ae86b5257b4e85eecba7d050154d49ebece1a216e0862bf94398cc4eec6",
+      "image_link": "https://gateway.irys.xyz/HB787BsHVoE9uNmsu4hSNuonAY7P7zMkcYh1YYksbhcA?ext=jpeg",
+      "metadata_hash": "49b1824506f0b2693b4d3e343947347fe47b204568c2f916d02f8bf6fa4b79fd",
+      "metadata_link": "https://gateway.irys.xyz/CV9617hALV6YVLS4KYtxHs6ap6jiHt4RE5Qs3yFamHpV",
+      "onChain": true
+    },
+    "0": {
+      "name": "File  #0000",
+      "image_hash": "823b03444d1a389514245c836b6dc4715615ed2fe4d2212ba45e3270102cd547",
+      "image_link": "https://gateway.irys.xyz/2qT3ww1faYD43KjLAqezWHsicx7PuL1bJCuwcx7x4TCp?ext=jpeg",
+      "metadata_hash": "b8962eb944ac011e29b938d50ccd0d8c40e3a4a8545861e994bd117db3f2d3f1",
+      "metadata_link": "https://gateway.irys.xyz/4vpsQSPctuvNTPdfJq51TGASccvEdnfEWUCZ4Ug44hsd",
+      "onChain": true
+    },
+    "1": {
+      "name": "File  #0001",
+      "image_hash": "735ba238a99d5188a79bdfce9ef0e738371f8d961b59f63e1d5834520dbd0ca9",
+      "image_link": "https://gateway.irys.xyz/6Fz7nEiTu1svWNTSMTLRqBFouFGTgKbwP2rNQBBenrVY?ext=jpeg",
+      "metadata_hash": "964473f1cb069210ee97c918aa0fc6a08c507dd8f326f3581fe0c6b37b20b966",
+      "metadata_link": "https://gateway.irys.xyz/3Y5jjcni1AKNNvWprCyPefmKA7VVGpqCYp6wT6enP92K",
+      "onChain": true
+    },
+    "2": {
+      "name": "File  #0002",
+      "image_hash": "4a717024d9611e1588956a76ff362632f6620654d274dec5953c5c76d6ffaed0",
+      "image_link": "https://gateway.irys.xyz/7rTQswGSta98qnJ3LzBZ6i5M48MuFGrGjXteT24zMnLw?ext=jpeg",
+      "metadata_hash": "6293a6dd3f52f2fabf87b3832cb82c420241b17f7517a9784c67878a54c88426",
+      "metadata_link": "https://gateway.irys.xyz/6GfykqJnRWZjpEHWQ2bQ2zzqwWYgrgJFE2kraAwQw4ye",
+      "onChain": true
+    },
+    "3": {
+      "name": "File  #0003",
+      "image_hash": "a69ffda9b7d31bd9a12720c5c393e5c16ef9d5530763478aaf79b78dc3b094d3",
+      "image_link": "https://gateway.irys.xyz/EdsXz8PciGzYBsSvAjqLwyz1UZziDw2FErRJBeXwzc3B?ext=jpeg",
+      "metadata_hash": "80767d997888bf46e1a4e6ae664eb891e851543aac449162f04c40926f8c8ea6",
+      "metadata_link": "https://gateway.irys.xyz/2vA3ZPZETBeb1M3TiBNtoFGfekihySYfFVukAKtBexg1",
+      "onChain": true
+    },
+    "4": {
+      "name": "File  #0004",
+      "image_hash": "8b5cbfcafcbb94ecf4bce39994cc2e3b0ac13739f01d3ebe8e13e06535b43433",
+      "image_link": "https://gateway.irys.xyz/DacP4jKwy94s4rwW24E2DZN8pTTzFhZecVm6DexXyK9S?ext=jpeg",
+      "metadata_hash": "1cd808f5525dcfee821c6d1c244f2353d87098f521f3e8e8a3ae63cd144fcb04",
+      "metadata_link": "https://gateway.irys.xyz/2kDSB8r7wkdbbACiA2rb4TvG62y3ToCPiev1VEjm37Wj",
+      "onChain": true
+    },
+    "5": {
+      "name": "File  #0005",
+      "image_hash": "c9ffefb4aecebd9beb1a4b432537d31e7ef8199744091fbbda4ab0d02c8aed1a",
+      "image_link": "https://gateway.irys.xyz/7Tqbb9vL9PsdzsVpyMrSU5KAnkp4Y6Y4YCdef1YCMjGr?ext=jpeg",
+      "metadata_hash": "90a27a26a0f8be4deb961d983bc64bf4ece1fa1976bc5f94b28de0dc41c5f867",
+      "metadata_link": "https://gateway.irys.xyz/H5CeELhxFMA5yMWpx8FhHEteDq7pBPAZo7HxhxfDdpCZ",
+      "onChain": true
+    },
+    "6": {
+      "name": "File  #0006",
+      "image_hash": "31ee9d446aabed03cc5e66925e2ee3af2f323305e8a76bfe4499a2d6e6b9c503",
+      "image_link": "https://gateway.irys.xyz/BYETYEQNVFVAuwvCVR7wehDN4n4TKKv6vPTwELtUTFUP?ext=jpeg",
+      "metadata_hash": "e6517a09ec17933db70c7ba8d95b3e1c6a88eb57938b2813e7484e77c3a5a905",
+      "metadata_link": "https://gateway.irys.xyz/B5Q16LWUTYJUwsvQweokMY3BBu3g5423BrYXWYrtpR9S",
+      "onChain": true
+    }
+  }
+}
