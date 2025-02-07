@@ -72,7 +72,7 @@ const BuyNFTButton = () => {
 
     return (
         <>
-            {itemsAvailable === 0 ? (
+            {itemsAvailable > 0 ? (
                 <button className="buy-nft" onClick={mintNFT}>
                     Cast a Spell
                     <div className="buy-nft--remaining-nfts">({itemsAvailable} remaining)</div>
