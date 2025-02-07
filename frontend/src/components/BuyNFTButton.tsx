@@ -2,12 +2,12 @@ import { generateSigner, publicKey as createPublicKey, transactionBuilder } from
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
 import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
 import { fetchCandyMachine, mintV2, mplCandyMachine } from '@metaplex-foundation/mpl-candy-machine'
-// import { mplCandyGuard } from '@metaplex-foundation/mpl-candy-guard';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
 import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox'
 
 import '../styles/BuyNFTButton.scss';
+import { SendTransactionError } from '@solana/web3.js';
 
 const BuyNFTButton = () => {
     const { publicKey, signTransaction, signAllTransactions } = useWallet();
@@ -24,31 +24,35 @@ const BuyNFTButton = () => {
     }
 
     const mintNFT = async () => {
-        const candyMachineAddress = createPublicKey(CANDY_MACHINE_ADDRESS)
-        const candyMachine = await fetchCandyMachine(umi, candyMachineAddress);
-        
-        const nftMint = generateSigner(umi);
-
-        console.log('candyMachine', candyMachine);
-        console.log('nftMint', nftMint);
-
         try {
-            await transactionBuilder()
-              .add(setComputeUnitLimit(umi, { units: 1000000 }))
-              .add(
-                mintV2(umi, {
-                    candyMachine: candyMachine.publicKey,
-                    nftMint: nftMint,
-                    collectionMint: candyMachine.collectionMint,
-                    collectionUpdateAuthority: candyMachine.authority,
-                    candyGuard: candyMachine.mintAuthority
-                })
-              )
-              .sendAndConfirm(umi);
+            const candyMachineAddress = createPublicKey(CANDY_MACHINE_ADDRESS)
+            const candyMachine = await fetchCandyMachine(umi, candyMachineAddress);
+            
+            console.log('candyMachine', candyMachine);
+            
+            const nftMint = generateSigner(umi);
+            
+            const mintTransaction = transactionBuilder()
+                .add(setComputeUnitLimit(umi, { units: 1000000 }))
+                .add(
+                    mintV2(umi, {
+                        candyMachine: candyMachine.publicKey,
+                        nftMint: nftMint,
+                        collectionMint: candyMachine.collectionMint,
+                        collectionUpdateAuthority: candyMachine.authority,
+                        tokenStandard: 4, // NonFungible
+                        mintArgs: {}
+                    })
+                );
 
-              console.log('NFT minted successfully');
-        } catch (error) {
+            const signature = await mintTransaction.sendAndConfirm(umi)
+            console.log('NFT minted successfully', signature);
+            
+        } catch (error: any) {
             console.error('Error minting NFT:', error);
+            if (error.logs) {
+                console.log('Error logs:', error.logs);
+            }
         }
     }
 
