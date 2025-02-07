@@ -22,4 +22,65 @@
         font-family: 'VictorMono';
         font-size: 1.5em;
     }
+
+    &--nft-image {
+        margin-top: 3em;
+        margin-bottom: 3em;
+        width: 250px;
+    }
+
+    &--error {
+        text-align: center;
+        padding: 20px;
+        margin-top: 30%;
+    
+        &-message {
+            color: #dc3545;
+            font-family: 'VictorMono';
+            margin-bottom: 20px;
+        }
+    
+        .buy-nft--try-again {
+            background-color: #dc3545;
+            
+            &:hover {
+                background-color: #c82333;
+            }
+        }
+    }
+}
+
+.minting-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    margin: 50% 0;
+
+    &--message {
+        font-family: 'VictorMono';
+        font-size: 1.5em;
+    }
+
+    .loader {
+        border: 4px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 4px solid #6a0dad;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 15px;
+    }
+
+    p {
+        margin: 0;
+        color: #666;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
