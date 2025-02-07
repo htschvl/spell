@@ -5,6 +5,7 @@ import { fetchCandyMachine, mintV2, mplCandyMachine } from '@metaplex-foundation
 import { useWallet } from '@solana/wallet-adapter-react';
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
 import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox'
+import { useState, useEffect } from 'react';
 
 import '../styles/BuyNFTButton.scss';
 
@@ -21,12 +22,29 @@ const BuyNFTButton = () => {
         umi.use(walletAdapterIdentity({ publicKey, signTransaction, signAllTransactions }));
     }
 
+    const [itemsAvailable, setItemsAvailable] = useState<number>(0);
+    
+    const fetchCandyMachineState = async () => {
+        try {
+            const candyMachineAddress = createPublicKey(CANDY_MACHINE_ADDRESS);
+            const candyMachine = await fetchCandyMachine(umi, candyMachineAddress);
+            const availableItems = candyMachine.items.filter(item => !item.minted).length;
+            setItemsAvailable(availableItems);
+        } catch (error) {
+            console.error('Error fetching candy machine state:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchCandyMachineState();
+    }, []);
+
     const mintNFT = async () => {
         try {
             const candyMachineAddress = createPublicKey(CANDY_MACHINE_ADDRESS)
             const candyMachine = await fetchCandyMachine(umi, candyMachineAddress);
             
-            console.log('candyMachine', candyMachine);
+            console.log('Candy Machine:', candyMachine);
             
             const nftMint = generateSigner(umi);
             
@@ -35,29 +53,34 @@ const BuyNFTButton = () => {
                 .add(
                     mintV2(umi, {
                         candyMachine: candyMachine.publicKey,
-                        nftMint: nftMint,
+                        nftMint: nftMint.publicKey,
                         collectionMint: candyMachine.collectionMint,
                         collectionUpdateAuthority: candyMachine.authority,
-                        tokenStandard: 4, // NonFungible
-                        mintArgs: {}
+                        mintArgs: {
+                            groups: undefined
+                        }
                     })
                 );
 
             const signature = await mintTransaction.sendAndConfirm(umi)
-            console.log('NFT minted successfully', signature);
             
-        } catch (error: any) {
+            console.log('NFT minted successfully', signature);
+        } catch (error) {
             console.error('Error minting NFT:', error);
-            if (error.logs) {
-                console.log('Error logs:', error.logs);
-            }
         }
     }
 
     return (
-        <button className="buy-nft" onClick={mintNFT}>
-            Cast a Spell
-        </button>
+        <>
+            {itemsAvailable === 0 ? (
+                <button className="buy-nft" onClick={mintNFT}>
+                    Cast a Spell
+                    <div className="buy-nft--remaining-nfts">({itemsAvailable} remaining)</div>
+                </button>
+            ) : (
+                <div className="buy-nft--sold-out">Sold out!</div>
+            )}
+        </>
     );
 }
 
