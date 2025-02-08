@@ -1,7 +1,7 @@
 import { generateSigner, publicKey as createPublicKey, transactionBuilder } from '@metaplex-foundation/umi';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
 import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
-import { fetchCandyMachine, mintV2, mplCandyMachine } from '@metaplex-foundation/mpl-candy-machine'
+import { fetchCandyMachine, mintFromCandyMachineV2, mintV2, mplCandyMachine } from '@metaplex-foundation/mpl-candy-machine'
 import { useWallet } from '@solana/wallet-adapter-react';
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
 import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox'
@@ -62,18 +62,36 @@ const BuyNFTButton = () => {
             console.log('Candy Machine:', candyMachine);
             
             const nftMint = generateSigner(umi);
+            const nftOwner = generateSigner(umi).publicKey;
+
+            console.log('Mint Info: ', {
+                candyMachine: candyMachine.publicKey,
+                mintAuthority: umi.identity,
+                nftMint: nftMint.publicKey,
+                nftOwner: nftOwner,
+                collectionMint: candyMachine.collectionMint,
+                collectionUpdateAuthority: candyMachine.authority
+            })
             
             const mintTransaction = transactionBuilder()
-                .add(setComputeUnitLimit(umi, { units: 1000000 }))
+                .add(setComputeUnitLimit(umi, { units: 800_000 }))
                 .add(
-                    mintV2(umi, {
-                        candyMachine: candyMachine.publicKey,
+                    // mintV2(umi, {
+                    //     candyMachine: candyMachine.publicKey,
+                    //     nftMint: nftMint.publicKey,
+                    //     collectionMint: candyMachine.collectionMint,
+                    //     collectionUpdateAuthority: candyMachine.authority,
+                    //     mintArgs: {
+                    //         groups: undefined
+                    //     }
+                    // })
+                    mintFromCandyMachineV2(umi, {
+                        candyMachine: candyMachine.mintAuthority,
+                        mintAuthority: umi.identity,
                         nftMint: nftMint.publicKey,
+                        nftOwner: nftOwner,
                         collectionMint: candyMachine.collectionMint,
-                        collectionUpdateAuthority: candyMachine.authority,
-                        mintArgs: {
-                            groups: undefined
-                        }
+                        collectionUpdateAuthority: candyMachine.header.owner
                     })
                 );
 
@@ -108,8 +126,12 @@ const BuyNFTButton = () => {
                             </div>
                         ) : mintError ? (
                             <div className="buy-nft--error">
-                                <p className="buy-nft--error-message">There was an error minting your NFT. Please try again.</p>
-                                <button className="buy-nft buy-nft--try-again" onClick={mintNFT}>Try Again</button>
+                                <p className="buy-nft--error-message">
+                                    There was an error minting your NFT.Please try again.
+                                </p>
+                                <button className="buy-nft buy-nft--try-again" onClick={mintNFT}>
+                                    Try Again
+                                </button>
                             </div>
                         ) : (
                             <>
