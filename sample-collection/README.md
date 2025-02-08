@@ -22,3 +22,9 @@ sugar deploy
 sugar verify
 
 - https://www.quicknode.com/guides/solana-development/nfts/how-to-deploy-an-nft-collection-on-solana-using-sugar-candy-machine-umi
+
+---
+
+Candy machine ID: FhnNmc64XXfopEYB5k18vpcb6v2Yt3LFvv2yHJgrjoiN
+
+-> https://www.solana.fm/address/FhnNmc64XXfopEYB5k18vpcb6v2Yt3LFvv2yHJgrjoiN?cluster=devnet-alpha

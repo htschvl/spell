@@ -7,8 +7,12 @@
   "isSequential": false,
   "creators": [
     {
-      "address": "haXiMsvEk9Y5ehcgvEAKB1gwzCXjBhFq4moYEpoigyf",
-      "share": 100
+      "address": "Eg9JCizkAsgw32NDhwLfaDp174SHTA3XkouojozH5Gdz",
+      "share": 50
+    },
+    {
+      "address": "4DFCv7fdmAxGZ8fV9jXBbS46LiSMTZUYQ4MwQBBHL82U",
+      "share": 50
     }
   ],
   "uploadMethod": "bundlr",
