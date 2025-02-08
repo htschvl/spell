@@ -15,6 +15,7 @@
         "uri": "0.jpeg",
         "type": "image/jpeg"
       }
-    ]
+    ],
+    "category" : "image"
   }
 }

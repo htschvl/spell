@@ -1,73 +1,73 @@
 {
   "program": {
-    "candyMachine": "FhnNmc64XXfopEYB5k18vpcb6v2Yt3LFvv2yHJgrjoiN",
+    "candyMachine": "G9ss9M3MZXZqmYc7m5XcvvxXCakbqoAbschwovtbsawm",
     "candyGuard": "",
-    "candyMachineCreator": "34yi6fa1tAShQvwn47qh8gfHAuG8EhNfbkPvXkUGNnFS",
-    "collectionMint": "DriwUdtsHKTfzeqsnLkMPJLuyyiwDeUMCATecarhoHr"
+    "candyMachineCreator": "AHuTUjb6rRD6Y1XzgAozWnVA8kz5ScGf7gyJYAjAikCz",
+    "collectionMint": "HNYvyxKwBmoqukgHdwY98k2aCqvDdtbrCnehfZbuvxSU"
   },
   "items": {
     "-1": {
       "name": "Spellcaster collection",
       "image_hash": "7a6a8ae86b5257b4e85eecba7d050154d49ebece1a216e0862bf94398cc4eec6",
-      "image_link": "https://gateway.irys.xyz/um4wjgumTaEg2PPwnXtpEo1hyasSHcPjcaJTJmtdmsP?ext=jpeg",
+      "image_link": "https://gateway.irys.xyz/9LFrDfJPMkcBBsUtVSgEEYwX8jWJ6NoskBiKv361mkJF?ext=jpeg",
       "metadata_hash": "49b1824506f0b2693b4d3e343947347fe47b204568c2f916d02f8bf6fa4b79fd",
-      "metadata_link": "https://gateway.irys.xyz/GT8QP1hPP6VRLGvDGmJTduN6joVZYjF3rSsoMCbax3RM",
+      "metadata_link": "https://gateway.irys.xyz/Gf1RqVX1estDwWbQUXyYNBS9c4zCPMUQEzyChHAB6x7M",
       "onChain": true
     },
     "0": {
       "name": "Spell #0000",
       "image_hash": "823b03444d1a389514245c836b6dc4715615ed2fe4d2212ba45e3270102cd547",
-      "image_link": "https://gateway.irys.xyz/B4w2PcW696s3HMPsT3mKhFBTN4RBgShQsHiTUSivhSUa?ext=jpeg",
-      "metadata_hash": "b20373d3d620dc60c03279acb9a9395f6f068922a4115169f212ad6b86a2e190",
-      "metadata_link": "https://gateway.irys.xyz/2nubM1FwHygRagAUUJ18jpDMkAEqhoZbuZRrNWwAzjmP",
+      "image_link": "https://gateway.irys.xyz/8RN3UWwXGRUiXxMwnuuuVuE58JyWpRfQDwaxT4gUkLmR?ext=jpeg",
+      "metadata_hash": "3f362c859dc5b060153e08a40b0cbde859f353cb7f45581763d58d8f77d2b011",
+      "metadata_link": "https://gateway.irys.xyz/13erV8EpsFKKeZtsRUmJBjHsPXsu4edY4B3WsNCqJyk1",
       "onChain": true
     },
     "1": {
       "name": "Spell #0001",
       "image_hash": "735ba238a99d5188a79bdfce9ef0e738371f8d961b59f63e1d5834520dbd0ca9",
-      "image_link": "https://gateway.irys.xyz/9bfDUNi83EA6kSfSEacHcTp4pofzVffgv6Sxojz1QQQU?ext=jpeg",
-      "metadata_hash": "964473f1cb069210ee97c918aa0fc6a08c507dd8f326f3581fe0c6b37b20b966",
-      "metadata_link": "https://gateway.irys.xyz/BZ5JAX3rJgE3CGDVcLJFkAxjw9Aq4ciKkdodok6DNK57",
+      "image_link": "https://gateway.irys.xyz/3eUCqYXm853Jng5ef2WXMgAwoPvm1Ld7TNq5GKTH1QyU?ext=jpeg",
+      "metadata_hash": "3b34514191eccbefe36c69f45dc62d9dd4ee0291e7cea2fdd0340968619fa15b",
+      "metadata_link": "https://gateway.irys.xyz/2c5LJSz4zR18CUYjFKSj7FTaLNBgpsoM7h33r5K1LLWj",
       "onChain": true
     },
     "2": {
       "name": "Spell #0002",
       "image_hash": "4a717024d9611e1588956a76ff362632f6620654d274dec5953c5c76d6ffaed0",
-      "image_link": "https://gateway.irys.xyz/8qsckbrq6ffdMGgCQyAUuzdNMGvF4ynJvnVfMLJ6m4Bm?ext=jpeg",
+      "image_link": "https://gateway.irys.xyz/8bbe7wTxj48uDDawZgvzkiJQvFZccBHNwsgofzvQbRUH?ext=jpeg",
       "metadata_hash": "6293a6dd3f52f2fabf87b3832cb82c420241b17f7517a9784c67878a54c88426",
-      "metadata_link": "https://gateway.irys.xyz/65KjpvMLi5z9AfyNW1c98iVvNionewqUvuJkc34usbaM",
+      "metadata_link": "https://gateway.irys.xyz/7qkQiQ5vWAJ3xzebV5AiPg6dD3QNU1xTX4b369c63zry",
       "onChain": true
     },
     "3": {
       "name": "Spell #0003",
       "image_hash": "a69ffda9b7d31bd9a12720c5c393e5c16ef9d5530763478aaf79b78dc3b094d3",
-      "image_link": "https://gateway.irys.xyz/7XrEgYsw7fNcsTjFULJeH7hJfiSKCjwW9Mwt95idkz32?ext=jpeg",
+      "image_link": "https://gateway.irys.xyz/HsHzGj2dGSe4ffnuZMo1svLXmikAe2cSW5is1yZ3cbeY?ext=jpeg",
       "metadata_hash": "80767d997888bf46e1a4e6ae664eb891e851543aac449162f04c40926f8c8ea6",
-      "metadata_link": "https://gateway.irys.xyz/GMNKyYANnEuscDy2TC5oLMjcRrKrjojY6ZSoWbZDRryF",
+      "metadata_link": "https://gateway.irys.xyz/7MQrdFB768pZhyRgFX5VXiFNFmKW63iABvkbGtGpsGQZ",
       "onChain": true
     },
     "4": {
       "name": "Spell #0004",
       "image_hash": "8b5cbfcafcbb94ecf4bce39994cc2e3b0ac13739f01d3ebe8e13e06535b43433",
-      "image_link": "https://gateway.irys.xyz/9orFaFN5B7WNG6aWzZS1wVsMcrbb21kzfdz3ft4jUY8e?ext=jpeg",
+      "image_link": "https://gateway.irys.xyz/y7jGfVpUuAktGC9TT2Q2W5yrsqyaFXeRmihb8ToDky6?ext=jpeg",
       "metadata_hash": "1cd808f5525dcfee821c6d1c244f2353d87098f521f3e8e8a3ae63cd144fcb04",
-      "metadata_link": "https://gateway.irys.xyz/6zYrA8KCY7DP1LatQM19TJggZnoZ9b4FpjYM72ZX2yn5",
+      "metadata_link": "https://gateway.irys.xyz/F4ZvmDi5bdF1UtmvnBMxQn555HCHLfbXEo1hkyBBCLZE",
       "onChain": true
     },
     "5": {
       "name": "Spell #0005",
       "image_hash": "c9ffefb4aecebd9beb1a4b432537d31e7ef8199744091fbbda4ab0d02c8aed1a",
-      "image_link": "https://gateway.irys.xyz/rNCBr13xnpB1xzDqeQJx3fxoNHvsZfApeNYyNr2sdiu?ext=jpeg",
+      "image_link": "https://gateway.irys.xyz/ABQJ6d9yBD8UevyQLGo5Sa3YyKPPAixxC29Po937cFZA?ext=jpeg",
       "metadata_hash": "90a27a26a0f8be4deb961d983bc64bf4ece1fa1976bc5f94b28de0dc41c5f867",
-      "metadata_link": "https://gateway.irys.xyz/6Q3QeFDxzZTeQUvuZjWtnQHjJgyjz9EEYTpYcANKKw4z",
+      "metadata_link": "https://gateway.irys.xyz/AdFpJ6cDPUu6Citd4qRS6YkKs2tc6sY1tpvLNW3ru1rd",
       "onChain": true
     },
     "6": {
       "name": "Spell #0006",
       "image_hash": "31ee9d446aabed03cc5e66925e2ee3af2f323305e8a76bfe4499a2d6e6b9c503",
-      "image_link": "https://gateway.irys.xyz/HLrWBm84ytRwe5RsKFGonAuoQvkeD6VgRPyaQPhCTTej?ext=jpeg",
+      "image_link": "https://gateway.irys.xyz/7N76Q1LAScrR8YgGRk9NoQTrP8Fkg1eyeSQQ7hgMAQ1P?ext=jpeg",
       "metadata_hash": "e6517a09ec17933db70c7ba8d95b3e1c6a88eb57938b2813e7484e77c3a5a905",
-      "metadata_link": "https://gateway.irys.xyz/DqAVoHR6yx8ePYKQY2xZ6GAbS7d8mpRHaehRBzrp1PHv",
+      "metadata_link": "https://gateway.irys.xyz/BZref2rvytdrifDRzCgkcQWcBwo3AsxjHRxbDayXeYgD",
       "onChain": true
     }
   }
