@@ -1,7 +1,7 @@
 import { generateSigner, publicKey as createPublicKey, transactionBuilder } from '@metaplex-foundation/umi';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
 import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
-import { fetchCandyMachine, mintFromCandyMachineV2, mplCandyMachine } from '@metaplex-foundation/mpl-candy-machine'
+import { fetchCandyMachine, mintV2, mplCandyMachine } from '@metaplex-foundation/mpl-candy-machine'
 import { useWallet } from '@solana/wallet-adapter-react';
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
 import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox'
@@ -18,7 +18,7 @@ const BuyNFTButton = () => {
     const { publicKey, signTransaction, signAllTransactions } = useWallet();
     const QUICKNODE_RPC = 'https://quick-side-gas.solana-devnet.quiknode.pro/abcf0c14dc61b97348f4ad07b4fa4b8c3a686a1b';
     // const CANDY_MACHINE_ADDRESS = '48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ'; // candy machine oficial
-    const CANDY_MACHINE_ADDRESS = '3i2jdPRbiaSqQ7VBL6j5UoRYUz51xFUnoKTUG7nTPeJK'; // candy machine de teste
+    const CANDY_MACHINE_ADDRESS = '9RgipKxeqKcewftFNJML4P9RQd1pnp8jdSCg6gEqXn7M'; // candy machine de teste
     
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [isMinting, setIsMinting] = useState<boolean>(false);
@@ -68,7 +68,7 @@ const BuyNFTButton = () => {
             console.log('Mint Info: ', {
                 candyMachine: candyMachine.publicKey,
                 mintAuthority: umi.identity,
-                nftMint: nftMint.publicKey,
+                nftMint: nftMint,
                 nftOwner: nftOwner,
                 collectionMint: candyMachine.collectionMint,
                 collectionUpdateAuthority: candyMachine.authority
@@ -77,15 +77,13 @@ const BuyNFTButton = () => {
             const mintTransaction = transactionBuilder()
                 .add(setComputeUnitLimit(umi, { units: 800_000 }))
                 .add(
-                    // TODO: make a way to mint from the nft collection owner account and transfer
-                    // to the user account
-                    mintFromCandyMachineV2(umi, {
+                    mintV2(umi, {
                         candyMachine: candyMachine.publicKey,
-                        mintAuthority: umi.identity,
-                        nftMint: nftMint,
-                        nftOwner: nftOwner,
+                        nftMint,
                         collectionMint: candyMachine.collectionMint,
-                        collectionUpdateAuthority: candyMachine.authority
+                        collectionUpdateAuthority: candyMachine.authority,
+                        tokenStandard: candyMachine.tokenStandard,
+                        candyGuard: candyMachine.mintAuthority
                     })
                 );
 
