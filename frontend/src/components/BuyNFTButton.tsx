@@ -6,19 +6,22 @@ import { useWallet } from '@solana/wallet-adapter-react';
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
 import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox'
 import { useState, useEffect } from 'react';
+import { WalletSignTransactionError } from '@solana/wallet-adapter-base';
+import { PublicKey } from '@solana/web3.js';
+import { getAssociatedTokenAddress } from '@solana/spl-token';
 
 import Modal from './Modal';
 
 import '../styles/BuyNFTButton.scss';
-
 import empressImage from '../assets/empress.jpg';
-import { WalletSignTransactionError } from '@solana/wallet-adapter-base';
 
 const BuyNFTButton = () => {
     const { publicKey, signTransaction, signAllTransactions } = useWallet();
     const QUICKNODE_RPC = 'https://quick-side-gas.solana-devnet.quiknode.pro/abcf0c14dc61b97348f4ad07b4fa4b8c3a686a1b';
     // const CANDY_MACHINE_ADDRESS = '48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ'; // candy machine oficial
     const CANDY_MACHINE_ADDRESS = '9RgipKxeqKcewftFNJML4P9RQd1pnp8jdSCg6gEqXn7M'; // candy machine de teste
+    const NFT_MINT_ADDRESS = 'mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9'
+    const PAYMENT_AMOUNT = 1000000000; // Quantidade em menor unidade do token (ex: 1 token = 1000000000 lamports)
     
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [isMinting, setIsMinting] = useState<boolean>(false);
@@ -59,20 +62,22 @@ const BuyNFTButton = () => {
         try {
             const candyMachineAddress = createPublicKey(CANDY_MACHINE_ADDRESS)
             const candyMachine = await fetchCandyMachine(umi, candyMachineAddress);
+
+             // Gerar o endereço da conta de token associada do usuário
+             const userTokenAccount = await getAssociatedTokenAddress(
+                new PublicKey(NFT_MINT_ADDRESS),
+                new PublicKey(publicKey!.toString())
+            );
+
+            // Gerar o endereço da conta de token associada do destinatário (treasury)
+            const treasuryTokenAccount = await getAssociatedTokenAddress(
+                new PublicKey(NFT_MINT_ADDRESS),
+                new PublicKey(candyMachine.mintAuthority.toString())
+            );
             
             console.log('Candy Machine:', candyMachine);
             
             const nftMint = generateSigner(umi);
-            const nftOwner = generateSigner(umi).publicKey;
-
-            console.log('Mint Info: ', {
-                candyMachine: candyMachine.publicKey,
-                mintAuthority: umi.identity,
-                nftMint: nftMint,
-                nftOwner: nftOwner,
-                collectionMint: candyMachine.collectionMint,
-                collectionUpdateAuthority: candyMachine.authority
-            })
             
             const mintTransaction = transactionBuilder()
                 .add(setComputeUnitLimit(umi, { units: 800_000 }))
@@ -83,7 +88,14 @@ const BuyNFTButton = () => {
                         collectionMint: candyMachine.collectionMint,
                         collectionUpdateAuthority: candyMachine.authority,
                         tokenStandard: candyMachine.tokenStandard,
-                        candyGuard: candyMachine.mintAuthority
+                        candyGuard: candyMachine.mintAuthority,
+                        mintArgs: {
+                            tokenPayment: {
+                                // amount: PAYMENT_AMOUNT,
+                                mint: createPublicKey(NFT_MINT_ADDRESS),
+                                destinationAta: createPublicKey(treasuryTokenAccount),
+                            }
+                        }
                     })
                 );
 
