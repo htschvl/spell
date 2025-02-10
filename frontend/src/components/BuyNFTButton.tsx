@@ -1,7 +1,7 @@
-import { generateSigner, publicKey as createPublicKey, transactionBuilder, percentAmount, some } from '@metaplex-foundation/umi';
+import { generateSigner, publicKey as createPublicKey, transactionBuilder } from '@metaplex-foundation/umi';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
-import { mplTokenMetadata, TokenStandard } from '@metaplex-foundation/mpl-token-metadata';
-import { create, createCandyMachineV2, fetchCandyMachine, mintFromCandyMachineV2, mplCandyMachine } from '@metaplex-foundation/mpl-candy-machine'
+import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
+import { fetchCandyMachine, mintFromCandyMachineV2, mplCandyMachine } from '@metaplex-foundation/mpl-candy-machine'
 import { useWallet } from '@solana/wallet-adapter-react';
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
 import { setComputeUnitLimit } from '@metaplex-foundation/mpl-toolbox'
