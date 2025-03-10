@@ -53,22 +53,41 @@ function HeaderContent({ isMobile, menuOpen, setIsMobile, setMenuOpen }: any) {
                 <span className="spellcaster-logo">SPELLCASTERS</span>
             </Link>
 
-            <button className="hamburger" onClick={toggleMenu} style={{ borderRadius: '50%', backgroundColor: 'transparent', border: '1px solid #5a34b2', width: 'inherit' }}>
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="20" viewBox="0 0 50 50" color='#5a34b2'>
-                    <path d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z"></path>
+            <button 
+                className="hamburger" 
+                onClick={toggleMenu} 
+                style={{ 
+                    borderRadius: '50%', 
+                    backgroundColor: 'transparent', 
+                    border: '1px solid purple', 
+                    width: '35px',
+                    height: '35px'
+                }}
+            >
+                <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    x="0px" 
+                    y="0px" 
+                    width="15" 
+                    height="20" 
+                    viewBox="0 0 50 50" 
+                    fill="white"
+                >
+                    <path d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z">
+                    </path>
                 </svg>
             </button>
             {menuOpen && (
-                <nav className="vertical-menu">
+                <nav className={`vertical-menu ${menuOpen ? 'open' : ''}`}>
                     <ul>
                         <li>
-                            <Link to="/about">About</Link>
+                            <Link to="/about" style={{ color: '#9441fb' }}>About</Link>
                         </li>
                         <li>
-                            <Link to="/buy-nft">Buy your NFT</Link>
+                            <Link to="/buy-nft" style={{ color: '#9441fb' }}>Buy your NFT</Link>
                         </li>
                         <li>
-                            <Link to="/contact">Contact</Link>
+                            <Link to="/contact" style={{ color: '#9441fb' }}>Contact</Link>
                         </li>
                     </ul>
                 </nav>
