@@ -1,6 +1,6 @@
 import { generateSigner, publicKey as createPublicKey, transactionBuilder } from '@metaplex-foundation/umi';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
-import { mplTokenMetadata } from '@metaplex-foundation/mpl-token-metadata';
+import { mplTokenMetadata, fetchDigitalAsset } from '@metaplex-foundation/mpl-token-metadata';
 import { fetchCandyMachine, mintV2, mplCandyMachine } from '@metaplex-foundation/mpl-candy-machine'
 import { useWallet } from '@solana/wallet-adapter-react';
 import { walletAdapterIdentity } from '@metaplex-foundation/umi-signer-wallet-adapters';
@@ -23,6 +23,7 @@ const BuyNFTButton = () => {
     const [isMinting, setIsMinting] = useState<boolean>(false);
     const [itemsAvailable, setItemsAvailable] = useState<number>(0);
     const [mintError, setMintError] = useState<string | null>(null);
+    const [mintedNFT, setMintedNFT] = useState<any>(null);
     
     const umi = createUmi(QUICKNODE_RPC)
                 .use(mplTokenMetadata())
@@ -40,6 +41,7 @@ const BuyNFTButton = () => {
             const availableItems = candyMachine.items.filter(item => !item.minted).length;
             setItemsAvailable(availableItems);
         } catch (error) {
+            // TODO: fix fetching error
             console.error('Error fetching candy machine state:', error);
         }
     };
@@ -50,6 +52,16 @@ const BuyNFTButton = () => {
 
     const handleOpenModal = () => setIsModalOpen(true);
     const handleCloseModal = () => setIsModalOpen(false);
+
+    const fetchMintedNFT = async (mintAddress: string) => {
+        try {
+            const mintPublicKey = createPublicKey(mintAddress);
+            const asset = await fetchDigitalAsset(umi, mintPublicKey);
+            setMintedNFT(asset);
+        } catch (error) {
+            console.error('Error fetching minted NFT:', error);
+        }
+    };
 
     const mintNFT = async () => {
         handleOpenModal();
@@ -76,14 +88,18 @@ const BuyNFTButton = () => {
                     })
                 );
 
-            const signature = await mintTransaction.sendAndConfirm(umi)
+            const signature = await mintTransaction.sendAndConfirm(umi);
             console.log('NFT minted successfully', signature);
+            
+            // Buscar o NFT após o mint bem-sucedido
+            await fetchMintedNFT(nftMint.publicKey.toString());
+            
         } catch (error) {
             console.error('Error minting NFT:', error);
-            if (error instanceof WalletSignTransactionError) {
-                handleCloseModal();
-                return;
-            }
+            // if (error instanceof WalletSignTransactionError) {
+            //     handleCloseModal();
+            //     return;
+            // }
             setMintError(error instanceof Error ? error.message : 'Failed to mint NFT. Please try again.');
         } finally {
             setIsMinting(false);
@@ -108,12 +124,27 @@ const BuyNFTButton = () => {
                         ) : mintError ? (
                             <div className="buy-nft--error">
                                 <p className="buy-nft--error-message">
-                                    There was an error minting your NFT.Please try again.
+                                    There was an error minting your NFT. Please try again.
                                 </p>
                                 <button className="buy-nft buy-nft--try-again" onClick={mintNFT}>
                                     Try Again
                                 </button>
                             </div>
+                        ) : mintedNFT ? (
+                            <>
+                                <img 
+                                    className="buy-nft--nft-image" 
+                                    src={mintedNFT.metadata?.uri} 
+                                    alt={mintedNFT.metadata?.name || "Your new NFT"} 
+                                />
+                                <p className='buy-nft--success-message'>
+                                    {mintedNFT.metadata?.name} foi mintado com sucesso!
+                                </p>
+                                <p className='buy-nft--nft-description'>
+                                    {mintedNFT.metadata?.description}
+                                </p>
+                                <button className="buy-nft" onClick={handleCloseModal}>Fechar</button>
+                            </>
                         ) : (
                             <>
                                 <img className="buy-nft--nft-image" src={empressImage} alt="Your new NFT" />
