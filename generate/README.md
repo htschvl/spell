@@ -23,5 +23,5 @@ sugar verify
 [48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ](https://solana.fm/address/48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ?cluster=devnet-alpha)
 
 
-[ ] aceitar [CHARM]()
-[ ] guards
+[ ] aceitar [CHARM](https://explorer.solana.com/address/mnt3S2Prwb2v3T5VSZW6RtHVRnctDnqtWBDF2TUshX9?cluster=devnet)
+[ ] guards ?
