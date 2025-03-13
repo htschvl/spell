@@ -21,3 +21,7 @@ sugar deploy
 sugar verify
 ```
 [48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ](https://solana.fm/address/48ijMjApmJiym6n8NQYrAhzBpBfoUjZPj9ya1tifsjQZ?cluster=devnet-alpha)
+
+
+[ ] aceitar [CHARM]()
+[ ] guards
